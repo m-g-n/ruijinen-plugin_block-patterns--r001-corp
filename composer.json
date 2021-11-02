@@ -1,0 +1,14 @@
+{
+    "name": "rui-jin-en/block-patterns/r001-corp",
+    "authors": [
+        {
+            "name": "rui-jin-en",
+            "email": "info@rui-jin-en.com",
+            "homepage": "https://rui-jin-en.com/"
+        }
+    ],
+    "require": {
+        "php": ">=5.6",
+        "inc2734/wp-github-plugin-updater": "^3.1"
+    }
+}

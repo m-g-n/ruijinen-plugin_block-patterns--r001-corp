@@ -1,0 +1,35 @@
+name: Create release pull requests
+
+on:
+  pull_request:
+    branches:
+      - dev
+    types: [closed]
+
+jobs:
+  create-release-pr:
+    if: github.event.pull_request.merged == true && startsWith(github.event.pull_request.head.ref, 'main') == false
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: get-npm-version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@master
+
+      - name: echo-npm-version
+        id: echo-version
+        run: |
+          echo ${{ steps.package-version.outputs.current-version}}
+
+      - name: Create a release pull request
+        uses: bakunyo/git-pr-release-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GIT_PR_RELEASE_BRANCH_PRODUCTION: main
+          GIT_PR_RELEASE_BRANCH_STAGING: dev
+          GIT_PR_RELEASE_LABELS: release
+          NPM_VERSION: ${{ steps.package-version.outputs.current-version}}
+          GIT_PR_RELEASE_TEMPLATE: .github/git-pr-release/.git-pr-release-template
