@@ -5,8 +5,11 @@
  * @license GPL-2.0+
  */
 
+//ブロックスタイルの名前・カテゴリを設定
 $override_block_name = 'snow-monkey-blocks/section';
-$block_style_label   = '類人猿R002_LP セクション1';
+$block_style_label   = '類人猿R001CORP 重なりキャッチ1';
+
+//各ファイルパスなどを設定.
 $basename = basename( __DIR__ );
 $front_filename  = 'dist/css/block-styles/' . $override_block_name . '/' . $basename . '/style-front.css';
 $editor_filename = 'dist/css/block-styles/' . $override_block_name . '/' . $basename . '/style-editor.css';

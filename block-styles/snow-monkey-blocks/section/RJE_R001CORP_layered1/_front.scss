@@ -1,0 +1,58 @@
+// ======================================================
+//
+// ブロックスタイル - 重なりキャッチ1（フロント固有のスタイル）
+//
+// ======================================================
+
+// ------------------------------------------------------
+// スタイル
+// ------------------------------------------------------
+
+// ------------------------------------------------------
+// サイドバー左/右 以外のテンプレートの場合
+//
+body:not([data-has-sidebar="true"]){
+	.is-style-RJE_R001CORP_layered1:not(:root){
+		> .smb-section__inner > .c-container{
+			> .smb-section__contents-wrapper{
+				> .smb-section__body{
+					// ------------------------------------------------------
+					// セクション
+					//
+					> .smb-section{
+						@include mq(md){
+							width: 94%;
+							padding-top: #{px_to_rem(48)};
+							padding-bottom: #{px_to_rem(48)};
+						}
+						> .smb-section__inner > .c-container{
+							@include mq(md){
+								padding-right: #{px_to_rem(86)};
+								padding-left: #{px_to_rem(86)};
+							}
+							> .smb-section__contents-wrapper{
+								> .smb-section__header{
+									.smb-section__title{
+										@include mq(lg){
+											font-size: #{px_to_rem(40)};
+										}
+										&::after{
+											@include mq(lg){
+												margin-top: #{px_to_rem(40)};
+											}
+										}
+									}
+									.smb-section__lede-wrapper{
+										@include mq(md){
+											margin-top: #{px_to_rem(40)};
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

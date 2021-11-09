@@ -1,43 +1,47 @@
 // ======================================================
 //
-// LP向けパターン共通のスタイル
+// コーポレートサイト向けパターン共通のスタイル
 //
 // ======================================================
-@import 'variable/variable';
-@import 'mixin/mixin';
 
-[class*="RJE_R001CORP"] {
-	p{
-		@include paragraph;
-	}
-	h1{
-		@include heading1;
-	}
-	h2{
-		@include heading2;
-	}
-	h3{
-		@include heading3;
-	}
-	h4{
-		@include heading4;
-	}
-	//ボタン - ノーマル
-	:not(.is-style-text):not(.is-style-ghost) > .smb-btn,
-	:not(.is-style-outline):not(.is-style-sme-shadowed) > .wp-block-button__link{ 
-		@include button--normal;
-	}
-	//ボタン - ゴースト
-	.is-style-ghost > .smb-btn,
-	.is-style-outline > .wp-block-button__link{
-		@include button--ghost;
-	}
-	//ボタン - テキスト
-	.is-style-text > .smb-btn{
-		@include button--text;
-	}
-	//ボタン - 影付き
-	.is-style-sme-shadowed > .wp-block-button__link{
-		@include button--normal;
-	}
-}
+@import './_foundation/foundation';
+
+
+// ------------------------------------------------------
+// パターン共通のスタイル.
+// ------------------------------------------------------
+// [class*="RJE_R001CORP"] {
+// 	p{
+// 		@include paragraph;
+// 	}
+// 	h1{
+// 		@include heading1;
+// 	}
+// 	h2{
+// 		@include heading2;
+// 	}
+// 	h3{
+// 		@include heading3;
+// 	}
+// 	h4{
+// 		@include heading4;
+// 	}
+// 	//ボタン - ノーマル
+// 	:not(.is-style-text):not(.is-style-ghost) > .smb-btn,
+// 	:not(.is-style-outline):not(.is-style-sme-shadowed) > .wp-block-button__link{ 
+// 		@include button--normal;
+// 	}
+// 	//ボタン - ゴースト
+// 	.is-style-ghost > .smb-btn,
+// 	.is-style-outline > .wp-block-button__link{
+// 		@include button--ghost;
+// 	}
+// 	//ボタン - テキスト
+// 	.is-style-text > .smb-btn{
+// 		@include button--text;
+// 	}
+// 	//ボタン - 影付き
+// 	.is-style-sme-shadowed > .wp-block-button__link{
+// 		@include button--normal;
+// 	}
+// }

@@ -1,0 +1,104 @@
+// ======================================================
+//
+// ブロックスタイル - 重なりキャッチ1（エディタ・フロント共通のスタイル）
+//
+// ======================================================
+
+// ------------------------------------------------------
+// スタイル
+// ------------------------------------------------------
+.is-style-RJE_R001CORP_layered1:not(:root){
+	padding-top: 0;
+	padding-bottom: 0;
+	> .smb-section__inner > .c-container{
+		padding-right: 0;
+		padding-left: 0;
+		> .smb-section__contents-wrapper{
+			width: 100%;
+			> .smb-section__header{
+				display: none;
+			}
+			> .smb-section__body{
+				// ------------------------------------------------------
+				// カバー
+				//
+				.wp-block-cover__inner-container{
+					padding-bottom: 100px; //下めり込み分
+					p{
+						line-height: 1.5;
+					}
+				}
+				// ------------------------------------------------------
+				// セクション
+				//
+				> .smb-section{
+					width: 97%;
+					max-width: 1380px;
+					margin-top: -100px;
+					padding-top: #{px_to_rem(24)};
+					padding-bottom: #{px_to_rem(24)};
+					z-index: 1;
+					> .smb-section__inner > .c-container{
+						padding-right: #{px_to_rem(24)};
+						padding-left: #{px_to_rem(24)};
+						> .smb-section__contents-wrapper{
+							> .smb-section__header{
+								.smb-section__title{
+									font-size: #{px_to_rem(28)};
+									&::after{
+										width: 120px;
+										margin-top: calc(1rem + ((1vw - 0.2rem) * 3.4091));
+										background-color: #CFCFCF;
+									}
+								}
+								.smb-section__lede-wrapper{
+									margin-top: calc(1rem + ((1vw - 0.2rem) * 3.4091));
+									max-width: 640px;
+									margin-right: auto;
+									margin-left: auto;
+								}
+								.smb-section__lede{
+									font-size: 1rem;
+								}
+							}
+							> .smb-section__body{
+								display: none;
+							}
+						}
+					}
+					//左
+					> .is-content-justification-left > .c-container > .smb-section__contents-wrapper > .smb-section__header {
+						.smb-section__lede-wrapper{
+							margin-left: 0;
+						}
+					}
+					//右
+					> .is-content-justification-right > .c-container > .smb-section__contents-wrapper > .smb-section__header {
+						.smb-section__lede-wrapper{
+							margin-right: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+// ------------------------------------------------------
+// 左寄せ
+//
+.is-style-RJE_R001CORP_layered1:not(:root) > .is-content-justification-left{
+	.smb-section{
+		margin-left: 0;
+	}
+}
+
+// ------------------------------------------------------
+// 右寄せ
+//
+.is-style-RJE_R001CORP_layered1:not(:root) > .is-content-justification-right{
+	.smb-section{
+		margin-right: 0;
+	}
+}
+

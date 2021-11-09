@@ -1,0 +1,13 @@
+// ------------------------------------------------------
+// Foundation.
+// ------------------------------------------------------
+
+// variable
+@import './variable/variable';
+
+//mixin
+@import './mixin/mediaqueries'; //メディアクエリー.
+@import './mixin/common-parts'; //汎用的に利用するパーツのスタイル.
+
+//function.
+@import './function/px_to_rem'; //px値をrem値に変更して返す.
