@@ -2,8 +2,8 @@
 Contributors: mgn
 Donate link: https://rui-jin-en.com/
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
-Requires at least: 5.8
-Tested up to: 5.8
+Requires at least: 5.9
+Tested up to: 5.9
 Stable tag: 0.0.0.1
 Requires PHP: 7.3
 License: GPLv2 or later
@@ -19,9 +19,9 @@ LPパターン集は、類人猿ブロックパターンプラグインの拡張
 
 ## 動作環境
 現在確認されている動作環境は以下のとおりです
-- WordPress 5.8 以上
-- Snow Monkey v15 以上
-- Snow Monkey Blocks v13 以上
+- WordPress 5.9 以上
+- Snow Monkey v16 以上
+- Snow Monkey Blocks v14 以上
 
 == Installation ==
 1. rruijinen-block-patterns-r002-corp フォルダ全体を /wp-content/plugins/ ディレクトリにアップロードします。

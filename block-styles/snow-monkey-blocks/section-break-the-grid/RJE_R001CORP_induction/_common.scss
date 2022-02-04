@@ -1,0 +1,183 @@
+// ======================================================
+//
+// ブロックスタイル - 任意ページへ誘導（エディタ・フロント共通のスタイル）
+//
+// ======================================================
+
+// ------------------------------------------------------
+// 設定・読み込み・変数など
+// ------------------------------------------------------
+@use "../../../../src/css/variable" as v;
+@use "../../../../src/css/import" as i;
+//ローカル変数
+$text_width: 41.2%;
+
+// ------------------------------------------------------
+// スタイル
+// ------------------------------------------------------
+.is-style-RJE_R001CORP_induction:not(:root){
+	&.smb-section-break-the-grid--left,
+	&.smb-section-break-the-grid--right{
+		@include i.mq(lg, max, true) {
+			padding-top: 0;
+			padding-bottom: 0;
+		}
+		.c-container{
+			padding-right: 0;
+			padding-left: 0;
+			max-width: unset;
+		}
+		.smb-section-break-the-grid__contents-wrapper{
+			.c-row__col{
+				//文章
+				&:first-child{
+					@include i.mq(md){
+						flex-basis: #{$text_width};
+						max-width: #{$text_width};
+						@include i.mq(lg, max, true) {
+							order: 2 !important;
+						}
+					}
+				}
+				//画像
+				&:last-child{
+					@include i.mq(md){
+						flex-basis: calc( 100% - #{$text_width} );
+						max-width: calc( 100% - #{$text_width} );
+						@include i.mq(lg, max, true) {
+							order: 1 !important;
+						}
+					}
+				}
+			}
+		}
+		.smb-section-break-the-grid__figure{
+			// right: 0 !important;
+			overflow: hidden;
+			@include i.mq(md, max, true) {
+				position: static;
+				margin-bottom: 0 !important;
+			}
+			@include i.mq(md){
+				// left: #{$text_width} !important;
+				@include i.mq(lg, max, true) {
+					position: absolute;
+					top: 0;
+					bottom: 0;
+					margin:0 !important;
+				}
+			}
+			> img{
+				@include i.mq(md){
+					height: 100.5% !important; //たまに画像の四隅に1px余白がつくため強制的に大きめにしている
+					width: 100.5% !important;
+					max-width: 100.5% !important;
+					@include i.mq(lg, max, true) {
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						max-height: none;
+						min-height: auto;
+						min-width: auto;
+						transform: translate(-50%,-50%);
+						object-fit: cover;
+						object-position: 50% 50%;
+					}
+				}
+			}
+		}
+		.smb-section-break-the-grid__content{
+			padding: i.px_to_rem(24) i.px_to_rem(20);
+			@include i.mq(lg){
+				padding: 3rem;
+			}
+		}
+		.smb-section-break-the-grid__header{
+			display: flex;
+			flex-direction: column-reverse;
+			+ .smb-section-break-the-grid__body{
+				margin-top: i.px_to_rem(32);
+				@include i.mq(lg){
+					margin-top: i.px_to_rem(40);
+				}
+			}
+		}
+		.smb-section-break-the-grid__subtitle{
+			font-size: i.px_to_rem(12);
+			font-weight: normal;
+			color: unset;
+			@include i.mq(lg){
+				font-size: 1rem;
+			}
+		}
+		.smb-section-break-the-grid__title{
+			font-size: i.px_to_rem(24);
+			line-height: 1.8;
+			@include i.mq(lg){
+				font-size: i.px_to_rem(32);
+			}
+			&::after{
+				content: unset;
+			}
+		}
+		.smb-section-break-the-grid__body{
+			p{
+				line-height: 1.8;
+			}
+			.smb-buttons{
+				margin-top: i.px_to_rem(32);
+				@include i.mq(lg){
+					margin-top: i.px_to_rem(64);
+				}
+			}
+			.smb-btn,
+			.wp-block-button__link{
+				padding: 0.41em 1.12em;
+				font-size: i.px_to_rem(18);
+				@include i.mq(lg){
+					min-width: 250px;
+				}
+			}
+		}
+		//全幅
+		&.alignfull{
+			.smb-section-break-the-grid__content{
+				@include i.mq(lg){
+					padding: calc(3rem + ((1vw - 0.64rem) * 12.5));
+				}
+			}
+			.smb-section-break-the-grid__body{
+				.smb-btn,
+				.wp-block-button__link{
+					@include i.mq(lg){
+						@include i.mq(lg, max, true) {
+							font-size: calc(1.125rem + ((1vw - 0.64rem) * 2.3438));
+						}
+					}
+					@include i.mq(xl){
+						font-size: 1.5rem;
+					}
+				}
+			}
+		}
+	}
+	//内容右・画像左
+	&.smb-section-break-the-grid--left{
+		.smb-section-break-the-grid__figure{
+			left: 0 !important;
+			@include i.mq(md){
+				right: #{$text_width} !important;
+			}
+		}
+	}
+	//内容左・画像右
+	&.smb-section-break-the-grid--right{
+		.smb-section-break-the-grid__figure{
+			right: 0 !important;
+			@include i.mq(md){
+				left: #{$text_width} !important;
+			}
+		}
+	}
+}
+

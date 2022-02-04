@@ -1,0 +1,92 @@
+// ======================================================
+//
+// ブロックスタイル - 背景画像あり項目（エディタ・フロント共通のスタイル）
+//
+// ======================================================
+
+// ------------------------------------------------------
+// 設定・読み込み・変数など
+// ------------------------------------------------------
+@use "../../../../src/css/variable" as v;
+@use "../../../../src/css/import" as i;
+
+// ------------------------------------------------------
+// スタイル
+// ------------------------------------------------------
+.is-style-RJE_R001CORP_items_with_bg{
+	> .c-row{
+		> .c-row__col{
+			margin-bottom: 0;
+		}
+		&[data-columns="1"]{
+			@include i.mq(sm,max,true){
+				margin-bottom: -1px;
+				> .c-row__col{
+					padding-bottom: 1px;
+				}
+			}
+		}
+		&[data-md-columns="1"]{
+			@include i.mq(sm){
+				@include i.mq(md,max,true){
+					margin-bottom: -1px;
+					> .c-row__col{
+						padding-bottom: 1px;
+					}
+				}
+			}
+		}
+		&[data-lg-columns="1"]{
+			@include i.mq(lg){
+				margin-bottom: -1px;
+				> .c-row__col{
+					padding-bottom: 1px;
+				}
+			}
+		}
+	}
+	.smb-items__banner__figure {
+		min-height: 375px;
+		@include i.mq(sm){
+			min-height: 512px;
+		}
+		> img {
+			width: auto;
+			min-width: 100%;
+			min-height: 375px;
+			object-fit: cover;
+			@include i.mq(sm){
+				min-height: 512px;
+			}
+		}
+	}
+	.smb-items__banner__figure__mask,
+	.smb-items__banner__figure__dummy{
+		min-height: 375px;
+		@include i.mq(sm){
+			min-height: 512px;
+		}
+	}
+	.smb-items__banner__body {
+		padding: i.px_to_rem(20);
+		@include i.mq(sm){
+			padding: 8%;
+		}
+	}
+	.smb-items__banner__title {
+		font-size: i.px_to_rem(18);
+		font-weight: bold;
+		line-height: 1.8;
+		@include i.mq(sm){
+			font-size: i.px_to_rem(24);
+		}
+	}
+	.smb-items__banner__lede {
+		margin-top: i.px_to_rem(20);
+		line-height: 1.8;
+		@include i.mq(sm){
+			margin-top: i.px_to_rem(40);
+			font-size: 1rem;
+		}
+	}
+}

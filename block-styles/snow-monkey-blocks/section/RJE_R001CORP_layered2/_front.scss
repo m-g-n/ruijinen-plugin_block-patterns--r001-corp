@@ -5,6 +5,12 @@
 // ======================================================
 
 // ------------------------------------------------------
+// 設定・読み込み・変数など
+// ------------------------------------------------------
+@use "../../../../src/css/variable" as v;
+@use "../../../../src/css/import" as i;
+
+// ------------------------------------------------------
 // スタイル
 // ------------------------------------------------------
 
@@ -20,45 +26,49 @@ body:not([data-has-sidebar="true"]){
 					// セクション
 					//
 					> .smb-section{
-						@include mq(lg){
+						@include i.mq(lg){
 							width: 92%;
-							padding-top: #{px_to_rem(80)};
-							padding-bottom: #{px_to_rem(80)};
+							padding-top: i.px_to_rem(80);
+							padding-bottom: i.px_to_rem(80);
 						}
 						> .smb-section__inner > .c-container{
-							@include mq(lg){
-								padding-right: #{px_to_rem(86)};
-								padding-left: #{px_to_rem(86)};
+							@include i.mq(lg){
+								padding-right: i.px_to_rem(86);
+								padding-left: i.px_to_rem(86);
 							}
 							> .smb-section__contents-wrapper{
 								> .c-row{
-									@media screen and (min-width: 40em) and (max-width: 767px){
-										display: block;
+									@include i.mq(sm){
+										@include i.mq(md,max,true){
+											display: block;
+										}
 									}
-									@include mq(md){
+									@include i.mq(md){
 										flex-wrap: nowrap;
 									}
 									> .c-row__col{
-										@media screen and (min-width: 40em) and (max-width: 767px){
-											max-width: 100%;
-											padding-right: 0;
-											padding-left: 0;
+										@include i.mq(sm){
+											@include i.mq(md,max,true){
+												max-width: 100%;
+												padding-right: 0;
+												padding-left: 0;
+											}
 										}
 										&:first-child{
-											@include mq(md){
+											@include i.mq(md){
 												flex: 1 0 auto;
 												max-width: none;
 											}
-											@include mq(lg){
+											@include i.mq(lg){
 												padding-right: 45px;
 											}
 										}
 										&:last-child{
-											@include mq(md){
+											@include i.mq(md){
 												flex: auto;
 												max-width: none;
 											}
-											@include mq(lg){
+											@include i.mq(lg){
 												padding-left: 45px;
 												border-left: 1px solid #CFCFCF;
 												
@@ -66,8 +76,8 @@ body:not([data-has-sidebar="true"]){
 										}
 										> .smb-section__header{
 											.smb-section__title{
-												@include mq(lg){
-													font-size: #{px_to_rem(40)};
+												@include i.mq(lg){
+													font-size: i.px_to_rem(40);
 													line-height: 1.6;
 												}
 											}
@@ -95,18 +105,18 @@ body[data-has-sidebar="true"]{
 					// セクション
 					//
 					> .smb-section{
-						padding-top: #{px_to_rem(24)};
-						padding-bottom: #{px_to_rem(24)};
+						padding-top: i.px_to_rem(24);
+						padding-bottom: i.px_to_rem(24);
 						> .smb-section__inner > .c-container{
-							padding-left: #{px_to_rem(24)};
-							padding-right: #{px_to_rem(24)};
+							padding-left: i.px_to_rem(24);
+							padding-right: i.px_to_rem(24);
 							> .smb-section__contents-wrapper{
 								> .c-row{
-									@media screen and (min-width: 40em){
+									@include i.mq(sm){
 										display: block;
 									}
 									> .c-row__col{
-										@media screen and (min-width: 40em) {
+										@include i.mq(sm){
 											max-width: 100%;
 											padding-right: 0;
 											padding-left: 0;

@@ -1,0 +1,88 @@
+// ======================================================
+//
+// ブロックスタイル - 年表（エディタ・フロント共通のスタイル）
+//
+// ======================================================
+
+// ------------------------------------------------------
+// 設定・読み込み・変数など
+// ------------------------------------------------------
+@use "../../../../src/css/variable" as v;
+@use "../../../../src/css/import" as i;
+
+// ------------------------------------------------------
+// スタイル
+// ------------------------------------------------------
+.is-style-RJE_R001CORP_chronology{
+	.smb-information__item{
+		margin-top: 0;
+		padding-bottom: i.px_to_rem(40);
+		border-bottom: 1px solid#CFCFCF;
+		@include i.mq(lg){
+			padding-bottom: i.px_to_rem(64);
+		}
+		&:not(:first-child){
+			padding-top: i.px_to_rem(24);
+			@include i.mq(lg){
+				padding-top: i.px_to_rem(40);
+			}
+		}
+		> .c-row{
+			> .c-row__col{
+				&:first-child{
+					flex: 0;
+					max-width: unset;
+					padding-right: i.px_to_rem(24);
+					@include i.mq(lg){
+						padding-right: i.px_to_rem(40);
+					}
+				}
+				&:last-child{
+					flex: 1;
+					max-width: unset;
+				}
+			}
+		}
+	}
+	.smb-information__item__label{
+		font-size: i.px_to_rem(18);
+		font-weight: bold;
+		line-height: 1.8;
+		color: var(--accent-color,#cd162c);
+		@include i.mq(lg){
+			font-size: i.px_to_rem(24);
+		}
+	}
+	.smb-information__item__body{
+		line-height: 1.8;
+	}
+	// スマートフォンでカラムを分割しない（スマホは1カラム）
+	&:not([data-sm-split-column=true]){
+		.smb-information__item{
+			> .c-row{
+				> .c-row__col{
+					&:first-child,
+					&:last-child{
+						@include i.mq(sm,max, true){
+							flex: 100%;
+							max-width: 100%;
+						}
+					}
+				}
+			}
+		}
+		.smb-information__item__body {
+			@include i.mq(sm,max, true){
+				margin-top: 0.5rem;
+			}
+		}
+	}
+	.smb-media-text__title{
+		+ .smb-media-text__body{
+			margin-top: 1.5em;
+			@include i.mq(lg){
+				margin-top: 1em;
+			}
+		}
+	}
+}

@@ -1,0 +1,73 @@
+// ======================================================
+//
+// ブロックスタイル - 1カラムの項目（エディタ・フロント共通のスタイル）
+//
+// ======================================================
+
+// ------------------------------------------------------
+// 設定・読み込み・変数など
+// ------------------------------------------------------
+@use "../../../../src/css/variable" as v;
+@use "../../../../src/css/import" as i;
+
+// ------------------------------------------------------
+// スタイル
+// ------------------------------------------------------
+.is-style-RJE_R001CORP_one_column_item{
+	& + &{
+		margin-top: 2.5rem;
+		@include i.mq(lg){
+			margin-top: 5rem;
+		}
+	}
+	> .c-row{
+		> .c-row__col{
+			&:first-child {
+				max-width: 100%;
+				flex: 0 1 100%;
+				margin-right: 0;
+				@include i.mq(md){
+					max-width: none;
+					flex: 1;
+					margin-right: calc(2.5rem - var(--_space, 1.76923rem)*1*var(--_margin-scale, 1));
+				}
+			}
+			&:last-child {
+				max-width: 100%;
+				flex: 0 1 100%;
+				@include i.mq(md){
+					max-width: none;
+					flex-basis: calc( 280px + var(--_space, 1.76923rem)*1*var(--_margin-scale, 1) );
+				}
+			}
+		}
+	}
+	> .c-row--reverse{
+		> .c-row__col:first-child {
+			margin-right: calc(2.5rem - var(--_space, 1.76923rem)*1*var(--_margin-scale, 1));
+			margin-left: 0;
+			@include i.mq(md){
+				margin-right: 0;
+				margin-left: calc(2.5rem - var(--_space, 1.76923rem)*1*var(--_margin-scale, 1));
+			}
+		}
+	}
+	.smb-media-text__figure {
+		text-align: center;
+		img {
+			width: 200px;
+			height: 200px;
+			object-fit: cover;
+			border-radius: 100%;
+			@include i.mq(lg) {
+				width: 280px;
+				height: 280px;
+			}
+		}
+	}
+}
+
+
+
+
+

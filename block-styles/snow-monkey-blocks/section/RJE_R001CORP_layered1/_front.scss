@@ -5,6 +5,12 @@
 // ======================================================
 
 // ------------------------------------------------------
+// 設定・読み込み・変数など
+// ------------------------------------------------------
+@use "../../../../src/css/variable" as v;
+@use "../../../../src/css/import" as i;
+
+// ------------------------------------------------------
 // スタイル
 // ------------------------------------------------------
 
@@ -20,31 +26,31 @@ body:not([data-has-sidebar="true"]){
 					// セクション
 					//
 					> .smb-section{
-						@include mq(md){
+						@include i.mq(md){
 							width: 94%;
-							padding-top: #{px_to_rem(48)};
-							padding-bottom: #{px_to_rem(48)};
+							padding-top: i.px_to_rem(48);
+							padding-bottom: i.px_to_rem(48);
 						}
 						> .smb-section__inner > .c-container{
-							@include mq(md){
-								padding-right: #{px_to_rem(86)};
-								padding-left: #{px_to_rem(86)};
+							@include i.mq(md){
+								padding-right: i.px_to_rem(86);
+								padding-left: i.px_to_rem(86);
 							}
 							> .smb-section__contents-wrapper{
 								> .smb-section__header{
 									.smb-section__title{
-										@include mq(lg){
-											font-size: #{px_to_rem(40)};
+										@include i.mq(lg){
+											font-size: i.px_to_rem(40);
 										}
 										&::after{
-											@include mq(lg){
-												margin-top: #{px_to_rem(40)};
+											@include i.mq(lg){
+												margin-top: i.px_to_rem(40);
 											}
 										}
 									}
 									.smb-section__lede-wrapper{
-										@include mq(md){
-											margin-top: #{px_to_rem(40)};
+										@include i.mq(md){
+											margin-top: i.px_to_rem(40);
 										}
 									}
 								}

@@ -1,0 +1,94 @@
+// ======================================================
+//
+// ブロックスタイル - 流れ（エディタ・フロント共通のスタイル）
+//
+// ======================================================
+
+// ------------------------------------------------------
+// 設定・読み込み・変数など
+// ------------------------------------------------------
+@use "../../../../src/css/variable" as v;
+@use "../../../../src/css/import" as i;
+//ローカル変数
+$number_width: 112; //数字部分の領域幅
+
+// ------------------------------------------------------
+// スタイル
+// ------------------------------------------------------
+.is-style-RJE_R001CORP_steps{
+	.smb-step__body{
+		line-height: 1.8;
+		&::before{
+			display: none;
+		}
+	}
+	.smb-step__item{
+		margin-left: 0;
+		@include i.mq(md){
+			margin-left: i.px_to_rem($number_width);
+		}
+		+ .smb-step__item{
+			margin-top: i.px_to_rem(36);
+			@include i.mq(md){
+				margin-top: i.px_to_rem(48);
+			}
+		}
+	}
+	.smb-step__item__title{
+		font-size: i.px_to_rem(18);
+		margin-bottom: i.px_to_rem(24);
+		@include i.mq(md){
+			font-size: i.px_to_rem(24)
+		}
+		@include i.mq(md,max,true){
+			display: block;
+			
+		}
+	}
+	.smb-step__item__number{
+		background-color: transparent;
+		overflow: visible;
+		justify-content: flex-start;
+		width: i.px_to_rem($number_width);
+		@include i.mq(md){
+			margin-left: i.px_to_rem($number_width) * -1;
+		}
+		@include i.mq(md,max,true){
+			position: static;
+			transform: none;
+			margin-left: 0;
+			margin-bottom: i.px_to_rem(10);
+			width: 100%;
+		}
+		&::before{
+			content: counter(item, decimal-leading-zero);
+			display: block;
+			font-size: i.px_to_rem(18);
+			font-weight: 800;
+			color: var(--accent-color, #000);
+			@include i.mq(md){
+				font-size: i.px_to_rem(24);
+			}
+		}
+		&::after{
+			content: "";
+			display: block;
+			width: i.px_to_rem(48);
+			height: 1px;
+			background-color: #CFCFCF;
+			@include i.mq(md){
+				position: absolute;
+				right: i.px_to_rem(15);
+			}
+			@include i.mq(md,max,true){
+				margin-right: i.px_to_rem(15);
+				margin-left: i.px_to_rem(15);
+			}
+		}
+	}
+}
+
+
+
+
+

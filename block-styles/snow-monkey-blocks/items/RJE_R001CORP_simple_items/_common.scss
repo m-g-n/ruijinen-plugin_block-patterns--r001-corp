@@ -1,0 +1,138 @@
+// ======================================================
+//
+// ブロックスタイル - シンプルな項目（エディタ・フロント共通のスタイル）
+//
+// ======================================================
+
+// ------------------------------------------------------
+// 設定・読み込み・変数など
+// ------------------------------------------------------
+@use "../../../../src/css/variable" as v;
+@use "../../../../src/css/import" as i;
+
+// ------------------------------------------------------
+// スタイル
+// ------------------------------------------------------
+.is-style-RJE_R001CORP_simple_items{
+	> .c-row{
+		margin-bottom: i.px_to_rem(20) * -1;
+		@include i.mq(md){
+			margin-right: -3.5%;
+			margin-bottom: i.px_to_rem(40) * -1;
+			margin-left: -3.5%;
+		}
+		>.c-row__col {
+			margin-bottom: 0;
+			padding-bottom: i.px_to_rem(20);
+			@include i.mq(md){
+				padding-right: 3.5%;
+				padding-bottom: i.px_to_rem(40);
+				padding-left: 3.5%;
+			}
+		}
+	}
+	// ------------------------------------------------------
+	// サムネイル
+	//
+	.smb-items__item__figure {
+		display: flex;
+		max-height: 330px;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 0;
+		overflow: hidden;
+		img {
+			width: 100%;
+			max-width: none;
+			object-fit: cover;
+		}
+	}
+	// ------------------------------------------------------
+	// ボディ
+	//
+	.smb-items__item__body {
+		padding-right: 7%;
+		padding-bottom: 1.5rem;
+		padding-left: 7%;
+	}
+	.smb-items__item__figure + .smb-items__item__body{
+		padding-top: 1.5rem;
+	}
+	.smb-items__item__title {
+		font-size: 1rem;
+		line-height: 1.8;
+	}
+	.smb-items__item__lede {
+		font-size: 0.75rem;
+		line-height: 1.8;
+	}
+	.smb-items__item__content {
+		margin-top: 1rem;
+		font-size: 0.75rem;
+		line-height: 1.8;
+	}
+	.smb-items__item__action {
+		margin-top: 0.7rem;
+		text-align: right;
+	}
+	.smb-items__item__btn {
+		position: relative;
+		display: block;
+		padding: 0 1.9rem 0 0;
+		color: var( --accent-color, #cd162c );
+		text-align: right;
+		overflow: visible;
+		background-color: transparent;
+		&::before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			right: 0;
+			margin-top: -4px;
+			border-style: solid;
+			border-width: 4px 0 0 6px;
+			border-color: transparent transparent transparent var( --accent-color, #cd162c );
+			transition: all .2s ease-out;
+		}
+		&::after {
+			content: '';
+			position: absolute;
+			top: 50%;
+			right: 3px;
+			width: 1rem;
+			height: 1px;
+			margin-top: -1px;
+			background-color: var( --accent-color, #cd162c );
+			transition: all .2s ease-out;
+		}
+		@include i.mq(lg) {
+			&:active,
+			&:focus,
+			&:hover {
+				padding: 0 0.9rem 0 1rem;
+				&::before {
+					right: -1rem;
+				}
+				&::after {
+					right: calc( (1rem - 3px) * -1 );
+				}
+			}
+		}
+	}
+	//ブロックリンク
+	a:active,
+	a:focus,
+	a:hover {
+		.smb-items__item__btn {
+			@include i.mq(lg) {
+				padding: 0 0.9rem 0 1rem;
+				&::before {
+					right: -1rem;
+				}
+				&::after {
+					right: calc( (1rem - 3px) * -1 );
+				}
+			}
+		}
+	}
+}

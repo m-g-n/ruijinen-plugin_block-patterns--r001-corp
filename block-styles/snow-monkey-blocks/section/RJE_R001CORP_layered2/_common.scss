@@ -5,6 +5,12 @@
 // ======================================================
 
 // ------------------------------------------------------
+// 設定・読み込み・変数など
+// ------------------------------------------------------
+@use "../../../../src/css/variable" as v;
+@use "../../../../src/css/import" as i;
+
+// ------------------------------------------------------
 // スタイル
 // ------------------------------------------------------
 .is-style-RJE_R001CORP_layered2:not(:root){
@@ -46,23 +52,23 @@
 								> .c-row__col{
 									> .smb-section__header{
 										.smb-section__title{
-											font-size: #{px_to_rem(28)};
+											font-size: i.px_to_rem(28);
 											&::after{
 												width: 120px;
-												margin-top: #{px_to_rem(24)};
+												margin-top: i.px_to_rem(24);
 												background-color: #CFCFCF;
-												@include mq(md){
+												@include i.mq(md){
 													display: none;
 												}
 											}
 										}
 										.smb-section__lede-wrapper{
-											margin-top: #{px_to_rem(16)};
+											margin-top: i.px_to_rem(16);
 										}
 									}
 									> .smb-section__body{
-										margin-top: #{px_to_rem(16)};
-										@include mq(md){
+										margin-top: i.px_to_rem(16);
+										@include i.mq(md){
 											margin-top: 0;
 										}
 									}

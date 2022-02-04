@@ -1,0 +1,41 @@
+// ======================================================
+//
+// ブロックスタイル - アクセスMAP（エディタ・フロント共通のスタイル）
+//
+// ======================================================
+
+// ------------------------------------------------------
+// 設定・読み込み・変数など
+// ------------------------------------------------------
+@use "../../../../src/css/variable" as v;
+@use "../../../../src/css/import" as i;
+
+// ------------------------------------------------------
+// スタイル
+// ------------------------------------------------------
+.is-style-RJE_R001CORP_access{
+	iframe{
+		width: 100%;
+		height: 240px;
+		@include i.mq(sm){
+			height: 400px;
+		}
+	}
+	.smb-buttons{
+		margin-top: i.px_to_rem(10);
+		font-size: i.px_to_rem(12);
+		@include i.mq(sm){
+			margin-top: i.px_to_rem(16);
+		}
+	}
+	.smb-btn{
+		min-width: i.px_to_rem(128);
+		padding: i.px_to_rem(8) i.px_to_rem(10);
+	}
+}
+.RJE_R001CORP_access__map_container:not(:root){
+	margin-top: 1rem;
+	@include i.mq(sm){
+		margin-top: i.px_to_rem(24);
+	}
+}

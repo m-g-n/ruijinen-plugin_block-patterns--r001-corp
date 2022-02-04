@@ -3,8 +3,8 @@
  * Plugin name: 類人猿ブロックパターン：コーポレートサイト向けパターン集
  * Description: 類人猿ブロックパターン コーポレートサイト向けパターンアドオンです
  * Version: 0.0.0.1
- * Tested up to: 5.8.1
- * Requires at least: 5.8.1
+ * Tested up to: 5.9
+ * Requires at least: 5.9
  * Author: mgn Inc.,
  * Author URI: https://rui-jin-en.com/
  * License: GPL-2.0+
@@ -16,6 +16,7 @@
 //TODO: 各ファイルの翻訳を作る
 
 namespace Ruijinen\Pattern\R001CORP;
+
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -49,31 +50,44 @@ class Bootstrap {
 	 */
 	public function __construct() {
 		add_action( 'plugins_loaded', [ $this, 'bootstrap' ] );
-		add_action( 'plugins_loaded', [ $this, 'register_patterns' ] );
-		// add_action( 'plugins_loaded', [ $this, 'test_remove_hook' ], 20 ); //TODO:テスト
+		add_action( 'init', [ $this, 'load_textdomain' ] );
 	}
 
 	/**
 	 * Bootstrap.
 	 */
 	public function bootstrap() {
-		//クラスオブジェクト作成
-		new App\Setup\ActivatePlugin();
 		// new App\Setup\AutoUpdate(); //TODO：リリースされたらコメントアウト外す
-		new App\Setup\TextDomain();
+
+		//アクティベートチェックを行い問題がある場合はメッセージを出し離脱する.
+		$activate_check = new App\Setup\ActivateCheck();
+		if ( !empty( $activate_check->messages ) ) {
+			add_action('admin_notices', array( $activate_check,'make_alert_message'));
+			return;
+		}
+
+		// コーポレートパターン用の汎用CSS・JS読み込み・テンプレートの読み込み
 		new App\Setup\Assets();
+		$this->register_patterns();
+
+		// add_action( 'plugins_loaded', [ $this, 'test_remove_hook' ], 20 ); //TODO:テスト
+	}
+
+	/**
+	 * Load Textdomain.
+	 */
+	public function load_textdomain() {
+		new App\Setup\TextDomain();
 	}
 
 	/**
 	 * Register Block Patterns.
 	 */
 	public function register_patterns() {
-		//TODO：グローバル変数ではなく、静的メソッドとして呼び出したい
 		global $rje_r001corp_patterns;
 		$rje_r001corp_patterns = new App\Patterns\RegisterPatterns();
 		new App\Patterns\RegisterCategory();
 	}
-
 
 	/**
 	 * remove テスト.
@@ -81,7 +95,7 @@ class Bootstrap {
 	public function test_remove_hook () {
 		//TODO：静的メソッドでフックの関数のエリアを指定したい
 		global $rje_r001corp_patterns;
-		// remove_filter( 'rje_register_patterns_args', array( $rje_r001corp_patterns, 'layered1' ), 10 );
+		remove_filter( 'rje_register_patterns_args', array( $rje_r001corp_patterns, 'layered1' ), 10 );
 	}
 }
 

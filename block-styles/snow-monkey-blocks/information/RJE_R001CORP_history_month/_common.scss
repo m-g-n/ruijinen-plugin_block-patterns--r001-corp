@@ -1,0 +1,155 @@
+// ======================================================
+//
+// ブロックスタイル - 沿革 - 月/内容（エディタ・フロント共通のスタイル）
+//
+// ======================================================
+
+// ------------------------------------------------------
+// 設定・読み込み・変数など
+// ------------------------------------------------------
+@use "../../../../src/css/variable" as v;
+@use "../../../../src/css/import" as i;
+
+//ローカル変数
+$label_width: i.px_to_rem(67);
+$body_width: calc( 100% - $label_width);
+$space_sp: i.px_to_rem(42);
+$space_pc: i.px_to_rem(90);
+
+// ------------------------------------------------------
+// スタイル
+// ------------------------------------------------------
+.is-style-RJE_R001CORP_history_month{
+	>.smb-information__body{
+		position: relative;
+		&::before{
+			content: "";
+			position: absolute;
+			top: 0.55rem;
+			left: calc( #{$label_width} + ( #{$space_sp} / 2 ) );
+			display: block;
+			width: 1px;
+			// height: calc(100% - 0.55rem);
+			height: 100%;
+			background-color: #CFCFCF;
+			@include i.mq(sm){
+				left: calc( #{$label_width} + ( #{$space_pc} / 2 ) );
+			}
+		}
+		> .smb-information__item{
+			position: relative;
+			&::before{
+				content: "";
+				position: absolute;
+				top: 0.55em;
+				left: calc( #{$label_width} + ( #{$space_sp} / 2 ) - 5px );
+				display: block;
+				width: 10px;
+				height: 10px;
+				background-color: var(--accent-color,#cd162c);
+				border-radius: 50%;
+				@include i.mq(sm){
+					left: calc( #{$label_width} + ( #{$space_pc} / 2 ) - 5px );
+				}
+			}
+			&:not(:first-child){
+				margin-top: i.px_to_rem(16);
+				@include i.mq(sm){
+					margin-top: i.px_to_rem(24);
+				}
+			}
+			> .c-row{
+				> .c-row__col{
+					> .smb-information__item__label{
+						font-weight: bold;
+					}
+				}
+				//ラベル側の幅
+				.c-row__col--1-3,
+				.c-row__col--1-4{
+					flex-basis: $label_width;
+					max-width: $label_width;
+				}
+				.c-row__col--md-1-3,
+				.c-row__col--md-1-4{
+					@include i.mq(sm){
+						flex-basis: $label_width;
+						max-width: $label_width;
+					}
+				}
+				//boby側の幅
+				.c-row__col--3-3,
+				.c-row__col--3-4{
+					flex-basis: $body_width;
+					max-width: $body_width;
+					padding-left: $space_sp;
+					@include i.mq(sm){
+						padding-left: $space_pc;
+						flex-basis: $body_width;
+						max-width: $body_width;
+					}
+					
+				}
+				.c-row__col--md-3-3,
+				.c-row__col--md-3-4{
+					@include i.mq(sm){
+						flex-basis: $body_width;
+						max-width: $body_width;
+						padding-left: $space_pc;
+					}
+				}
+			}
+		}
+	}
+	//スマホ時ラベルと内容を横並びで表示しない
+	&:not([data-sm-split-column="true"]){
+		@include i.mq(sm, max, true){
+			$padding-left: 30px;
+			>.smb-information__body{
+				padding-left: 20px;
+				&::before{
+					left: 5px;
+				}
+				> .smb-information__item{
+					&::before{
+						left: -20px;
+					}
+				}
+			}
+			>.smb-information__item__body{
+				margin-top: 0;
+			}
+		}
+	}
+	//スマホ時ラベルと内容を横並びで表示する
+	&[data-sm-split-column="true"]{
+		@include i.mq(sm, max, true){
+			>.smb-information__body > .smb-information__item > .c-row > .c-row__col >.smb-information__item__body{
+				margin-top: 0;
+			}
+		}
+	}
+}
+
+//「沿革 - 年内」に入れた場合
+.is-style-RJE_R001CORP_history_year{
+	>.smb-information__body{
+		> .smb-information__item:not(:first-child){
+			> .c-row > .c-row__col > .smb-information__item__label{
+				padding-top: i.px_to_rem(16);
+				@include i.mq(sm){
+					padding-top: i.px_to_rem(24);
+				}
+			}
+			.is-style-RJE_R001CORP_history_month{
+				>.smb-information__body{
+					padding-top: i.px_to_rem(16);
+					@include i.mq(sm){
+						padding-top: i.px_to_rem(24);
+					}
+				}
+			}
+		}
+
+	}
+}

@@ -1,0 +1,110 @@
+// ======================================================
+//
+// ブロックスタイル - 投稿一覧（エディタ・フロント共通のスタイル）
+//
+// ======================================================
+
+// ------------------------------------------------------
+// 設定・読み込み・変数など
+// ------------------------------------------------------
+@use "../../../../src/css/variable" as v;
+@use "../../../../src/css/import" as i;
+
+// ------------------------------------------------------
+// スタイル
+// ------------------------------------------------------
+.is-style-RJE_R001CORP_recent_posts:not(:root){
+	.c-entries--rich-media,
+	.c-entries-carousel {
+		.c-entries__item {
+			margin-bottom: 2.5rem;
+			padding-right: 3.5%;
+			padding-left: 3.5%;
+			@include i.mq(sm) {
+				margin-bottom: 7%;
+			}
+			@include i.mq(lg) {
+				> a:active,
+				> a:focus,
+				> a:hover {
+					.c-entry-summary__body {
+						opacity: 1;
+						filter: brightness(95%);
+					}
+				}
+			}
+		}
+		.c-entry-summary__figure {
+			margin-bottom: 0;
+			&::before {
+				padding-top: 400px;
+			}
+			.c-entry-summary__term {
+				right: inherit;
+				left: 0;
+				display: flex;
+				justify-content: center;
+				max-width: 208px;
+				min-width: 114px;
+				padding: 0.5rem;
+				font-size: 0.75rem;
+				line-height: 1.4;
+				word-break: break-word;
+			}
+		}
+		.c-entry-summary__body {
+			position: relative;
+			width: 90%;
+			margin-top: -100px;
+			margin-left: 10%;
+			padding: 1.5rem 6%;
+			background-color: #ffffff;
+			transition: filter .2s ease-out;
+		}
+		.c-entry-summary__header {
+			margin-bottom: 0.5rem;
+		}
+		.c-entry-summary__title {
+			font-size: 1rem;
+			line-height: 1.8;
+		}
+		.c-entry-summary__content {
+			color: inherit;
+			font-size: 0.75rem;
+			line-height: 1.8;
+		}
+		.c-entry-summary__meta {
+			margin-top: 1rem;
+			color: #898989;
+			font-size: 0.75rem;
+			line-height: 1.8;
+			text-align: right;
+			font-weight: normal;
+		}
+		.c-meta{
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: flex-end;
+		}
+		.c-meta__item {
+			&:not(:last-child) {
+				margin-right: 0;
+			}
+			&.c-meta__item--author {
+				font-weight: normal;
+				img {
+					margin-right: 4px;
+				}
+			}
+			&.c-meta__item--published {
+				margin-left: 10px;
+				padding-left: 10px;
+				border-left: 1px solid #CFCFCF;
+			}
+		}
+	}
+	.c-entries--rich-media{
+		margin-right: -3.5%;
+		margin-left: -3.5%;
+	}
+}

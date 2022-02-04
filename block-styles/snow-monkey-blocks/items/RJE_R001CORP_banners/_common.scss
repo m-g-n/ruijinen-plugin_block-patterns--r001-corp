@@ -1,0 +1,52 @@
+// ======================================================
+//
+// ブロックスタイル - バナー（エディタ・フロント共通のスタイル）
+//
+// ======================================================
+
+// ------------------------------------------------------
+// 設定・読み込み・変数など
+// ------------------------------------------------------
+@use "../../../../src/css/variable" as v;
+@use "../../../../src/css/import" as i;
+
+// ------------------------------------------------------
+// スタイル
+// ------------------------------------------------------
+.is-style-RJE_R001CORP_banners{
+	.smb-items__banner{
+		&::before{
+			content: "";
+			display: block;
+			padding-top: 37.5%;
+		}
+	}
+	.smb-items__banner__figure{
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
+	.smb-items__banner__body{
+		padding: i.px_to_rem(8) 0;
+		@include i.mq(lg){
+			padding-top: 1rem;
+			padding-bottom: 1rem;
+		}
+		// padding-bottom: i.px_to_rem(8);
+	}
+	.smb-items__banner__body-inner{
+		width: 86%;
+		margin-right: auto;
+		margin-left: auto;
+	}
+	.smb-items__banner__title{
+		font-size: i.px_to_rem(18);
+		font-weight: bold;
+		line-height: 1.4;
+		@include i.mq(lg){
+			font-size: i.px_to_rem(24);
+		}
+	}
+}
