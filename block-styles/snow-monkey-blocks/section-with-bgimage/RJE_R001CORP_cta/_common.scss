@@ -1,0 +1,69 @@
+// ======================================================
+//
+// ブロックスタイル - お問い合わせ誘導（エディタ・フロント共通のスタイル）
+//
+// ======================================================
+
+// ------------------------------------------------------
+// 設定・読み込み・変数など
+// ------------------------------------------------------
+@use "../../../../src/css/variable" as v;
+@use "../../../../src/css/import" as i;
+
+// ------------------------------------------------------
+// スタイル
+// ------------------------------------------------------
+.is-style-RJE_R001CORP_cta:not(:root){
+	padding-top: 4.15rem;
+	padding-bottom: 4.15rem;
+	text-align: left;
+	> .smb-section__inner > .c-container{
+		padding-right: i.px_to_rem(20);
+		padding-left: i.px_to_rem(20);
+	}
+	.smb-section__title{
+		display: flex;
+		justify-content: center;
+		text-align: left;
+		&::after{
+			content: unset;
+		}
+	}
+	.smb-section__body{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-top: i.px_to_rem(24);
+	}
+	.wp-block-separator{
+		margin-top: i.px_to_rem(40);
+		margin-bottom: calc(i.px_to_rem(40) - 1.8rem); //pタグのmarginに配慮
+		max-width: 100%;
+		width: 100%;
+	}
+}
+.RJE_R001CORP_cta__contact_btn:not(:root){
+	.smb-btn{
+		padding: 0.41em 1.12em;
+		font-size: i.px_to_rem(18);
+		@include i.mq(lg){
+			min-width: 250px;
+			font-size: i.px_to_rem(24);
+		}
+	}
+}
+
+.RJE_R001CORP_cta__ex_contact:not(:root){
+	display: inline-block;
+	margin-top: i.px_to_rem(20);
+	text-align: left;
+	.smb-btn-wrapper{
+		+ .smb-btn-wrapper{
+			margin-top: i.px_to_rem(10);
+			
+		}
+	}
+	.smb-btn{
+		padding: i.px_to_rem(6);
+	}
+}

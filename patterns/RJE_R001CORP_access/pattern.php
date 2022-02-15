@@ -9,8 +9,8 @@
 <!-- /wp:html -->
 
 <!-- wp:snow-monkey-blocks/buttons {"contentJustification":"right"} -->
-<div class="wp-block-snow-monkey-blocks-buttons smb-buttons is-content-justification-right"><!-- wp:snow-monkey-blocks/btn {"borderRadius":0,"className":"is-style-RJE-access-btn-1 is-style-ghost"} -->
-<div class="wp-block-snow-monkey-blocks-btn smb-btn-wrapper is-style-RJE-access-btn-1 is-style-ghost"><a class="smb-btn" href="" style="border-radius:0px"><span class="smb-btn__label"><i class="fas fa-map-marker-alt"></i> 大きな地図を見る</span></a></div>
+<div class="wp-block-snow-monkey-blocks-buttons smb-buttons is-content-justification-right"><!-- wp:snow-monkey-blocks/btn {"borderRadius":0,"className":"is-style-ghost"} -->
+<div class="wp-block-snow-monkey-blocks-btn smb-btn-wrapper is-style-ghost"><a class="smb-btn" href="" style="border-radius:0px"><span class="smb-btn__label"><i class="fas fa-map-marker-alt"></i> 大きな地図を見る</span></a></div>
 <!-- /wp:snow-monkey-blocks/btn --></div>
 <!-- /wp:snow-monkey-blocks/buttons --></div>
 <!-- /wp:group -->

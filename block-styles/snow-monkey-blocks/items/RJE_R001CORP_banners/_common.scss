@@ -14,19 +14,29 @@
 // スタイル
 // ------------------------------------------------------
 .is-style-RJE_R001CORP_banners{
-	.smb-items__banner{
-		&::before{
-			content: "";
-			display: block;
-			padding-top: 37.5%;
+	//バナーのアスペクト比を1:0.375にする
+	&.is-height_size_banner{
+		.smb-items__banner{
+			&::before{
+				content: "";
+				display: block;
+				padding-top: 37.5%;
+			}
 		}
-	}
-	.smb-items__banner__figure{
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
+		.smb-items__banner__figure{
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+		}
+		.smb-items__banner__body{
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+		}
 	}
 	.smb-items__banner__body{
 		padding: i.px_to_rem(8) 0;
@@ -34,7 +44,6 @@
 			padding-top: 1rem;
 			padding-bottom: 1rem;
 		}
-		// padding-bottom: i.px_to_rem(8);
 	}
 	.smb-items__banner__body-inner{
 		width: 86%;

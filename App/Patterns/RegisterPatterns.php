@@ -30,6 +30,8 @@ class RegisterPatterns {
 		add_filter( 'rje_register_patterns_args', array( $this, 'history' ), 10 );
 		add_filter( 'rje_register_patterns_args', array( $this, 'access' ), 10 );
 		add_filter( 'rje_register_patterns_args', array( $this, 'banners' ), 10 );
+		add_filter( 'rje_register_patterns_args', array( $this, 'child_pages' ), 10 );
+		add_filter( 'rje_register_patterns_args', array( $this, 'cta' ), 10 );
 	}
 
 	/**
@@ -283,6 +285,38 @@ class RegisterPatterns {
 			'specific-style' => false,
 			'specific-script' => false,
 			'block-style'    => array( RJE_R001CORP_KEY . '_banners' ),
+			'path'           => RJE_R001CORP_PATH,
+		);
+		return $args;
+	}
+
+	/**
+	 * 子ページ一覧.
+	 */
+	public function child_pages( $args ) {
+		$args[] = array(
+			'key'            => RJE_R001CORP_KEY . '_child_pages',
+			'title'          => '子ページ一覧',
+			'cat'            => array( RJE_R001CORP_KEY ),
+			'specific-style' => false,
+			'specific-script' => false,
+			'block-style'    => array( RJE_R001CORP_KEY . '_child_pages' ),
+			'path'           => RJE_R001CORP_PATH,
+		);
+		return $args;
+	}
+
+	/**
+	 * お問い合わせ誘導.
+	 */
+	public function cta( $args ) {
+		$args[] = array(
+			'key'            => RJE_R001CORP_KEY . '_cta',
+			'title'          => 'お問い合わせ誘導',
+			'cat'            => array( RJE_R001CORP_KEY ),
+			'specific-style' => false,
+			'specific-script' => false,
+			'block-style'    => array( RJE_R001CORP_KEY . '_cta' ),
 			'path'           => RJE_R001CORP_PATH,
 		);
 		return $args;

@@ -79,7 +79,7 @@
 	.smb-section-break-the-grid__title{
 		font-size: i.px_to_rem(24);
 		line-height: 1.8;
-		@include i.mq(md){
+		@include i.mq(lg){
 			font-size: i.px_to_rem(32);
 		}
 		&::after{

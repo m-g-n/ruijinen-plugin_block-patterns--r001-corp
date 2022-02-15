@@ -1,0 +1,107 @@
+// ======================================================
+//
+// ブロックスタイル - 子ページ一覧（エディタ・フロント共通のスタイル）
+//
+// ======================================================
+
+// ------------------------------------------------------
+// 設定・読み込み・変数など
+// ------------------------------------------------------
+@use "../../../../src/css/variable" as v;
+@use "../../../../src/css/import" as i;
+
+// ------------------------------------------------------
+// スタイル
+// ------------------------------------------------------
+.is-style-RJE_R001CORP_child_pages{
+	.p-child-pages{
+		@include i.mq(md){
+			display: flex;
+			align-items: flex-start;
+		}
+	}
+	.p-child-pages__title{
+		justify-content: flex-start;
+		margin-bottom: i.px_to_rem(10);
+		font-size: i.px_to_rem(18);
+		@include i.mq(md){
+			margin-bottom: 0;
+			padding-right: i.px_to_rem(40);
+			flex: 1 0 160px;
+			max-width: 160px;
+		}
+		@include i.mq(lg){
+			flex-basis: 200px;
+			max-width: 200px;
+			font-size: i.px_to_rem(24);
+		}
+		&::before,
+		&::after{
+			display: none;
+		}
+	}
+	.c-entries--simple{
+		border: none;
+		@include i.mq(md){
+			position: relative;
+			display: flex;
+			flex-wrap: wrap;
+			margin: -12px;
+			padding-left: i.px_to_rem(28);
+		}
+		@include i.mq(md,max,true){
+			padding-top: i.px_to_rem(8);
+			border-top: 1px solid #CFCFCF;
+		}
+		&::before{
+			@include i.mq(md){
+				content: "";
+				position: absolute;
+				top: i.px_to_rem(12);
+				left: 0;
+				display: block;
+				width: 1px;
+				height: calc(100% - 24px);
+				background-color: #CFCFCF;
+			}
+		}
+		.c-entries__item{
+			border: unset;
+			padding-top: i.px_to_rem(12);
+			padding-bottom: i.px_to_rem(12);
+			@include i.mq(md){
+				flex: 1 0 50%;
+				max-width: 50%;
+				padding-right: i.px_to_rem(12);
+				padding-left: i.px_to_rem(12);
+			}
+			@include i.mq(lg){
+				flex-basis: 33.3%;
+				max-width: 33.3%;
+			}
+			> a{
+				padding: 0;
+			}
+		}
+		.c-entry-summary{
+			display: flex;
+			align-items: center;
+		}
+		.c-entry-summary__figure{
+			flex: 1 0 80px;
+			max-width: 80px;
+			margin-right: 1rem;
+			&::before{
+				padding-top: 100%;
+			}
+		}
+		.c-entry-summary__title{
+			font-size: 1rem;
+			font-weight: normal;
+			line-height: 1.5;
+		}
+		.c-entry-summary__content{
+			display: none;
+		}
+	}
+}
