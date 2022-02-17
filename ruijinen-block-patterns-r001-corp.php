@@ -61,7 +61,7 @@ class Bootstrap {
 	 * Bootstrap.
 	 */
 	public function bootstrap() {
-		// new App\Setup\AutoUpdate(); //TODO：リリースされたらコメントアウト外す
+		new App\Setup\AutoUpdate();
 
 		//アクティベートチェックを行い問題がある場合はメッセージを出し離脱する.
 		$activate_check = new App\Setup\ActivateCheck();
