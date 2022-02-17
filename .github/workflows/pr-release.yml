@@ -21,6 +21,11 @@ jobs:
         with:
           project: "./version.json"
 
+      - name: Echo Version
+        id: echo-version
+        run: |
+          echo "Version=${{ steps.get_version.outputs.version }}"
+
       - name: Create a release pull request
         uses: bakunyo/git-pr-release-action@master
         env:
@@ -28,5 +33,5 @@ jobs:
           GIT_PR_RELEASE_BRANCH_PRODUCTION: main
           GIT_PR_RELEASE_BRANCH_STAGING: dev
           GIT_PR_RELEASE_LABELS: release
-          PKG_VERSION: ${{ steps.get_version.outputs.version}}
+          PKG_VERSION: ${{ steps.get_version.outputs.version }}
           GIT_PR_RELEASE_TEMPLATE: .github/git-pr-release/.git-pr-release-template
