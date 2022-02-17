@@ -12,7 +12,7 @@ jobs:
     #nodeのバージョン設定 参考 https://docs.github.com/ja/free-pro-team@latest/actions/guides/building-and-testing-nodejs
     strategy:
       matrix:
-        node-version: [13.x] 
+        node-version: [14.x] 
 
     steps:
       - name: Checkout code
@@ -37,10 +37,8 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install Dependencies
         run: yarn install --prefer-offline
-      - name: scss build
-        run: yarn gulp sass
-      - name: js build
-        run: yarn gulp js
+      - name: yarn build
+        run: yarn build
 
       #composerの実施
       - name: Composer install
