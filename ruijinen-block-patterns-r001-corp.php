@@ -2,7 +2,7 @@
 /**
  * Plugin name: 類人猿ブロックパターン：コーポレートサイト向けパターン集
  * Description: 類人猿ブロックパターン コーポレートサイト向けパターンアドオンです
- * Version: 0.0.0.1
+ * Version: 0.0.0.0.2
  * Tested up to: 5.9
  * Requires at least: 5.9
  * Author: mgn Inc.,
@@ -61,7 +61,7 @@ class Bootstrap {
 	 * Bootstrap.
 	 */
 	public function bootstrap() {
-		// new App\Setup\AutoUpdate(); //TODO：リリースされたらコメントアウト外す
+		new App\Setup\AutoUpdate();
 
 		//アクティベートチェックを行い問題がある場合はメッセージを出し離脱する.
 		$activate_check = new App\Setup\ActivateCheck();
