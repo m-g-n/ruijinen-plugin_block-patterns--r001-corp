@@ -12,7 +12,6 @@ $block_style_label   = '類人猿R001CORP アクセスMAP';
 //各ファイルパスなどを設定.
 $basename      = basename( __DIR__ );
 $dist_dir_path = 'dist/css/block-styles/' . $override_block_name . '/' . $basename . '/';
-$common_filename  = $dist_dir_path . 'style-common.css';
 $front_filename  = $dist_dir_path . 'style-front.css';
 $editor_filename = $dist_dir_path . 'style-editor.css';
 
@@ -29,11 +28,8 @@ register_block_style(
 );
 
 //フロント用のCSSファイルを登録
-// wp_register_style( 'is-style-' . $basename . '-common', RJE_R001CORP_URL . $front_filename, $this->style_front_deps, $front_filetime );
 wp_register_style( 'is-style-' . $basename . '-front', RJE_R001CORP_URL . $front_filename, $this->style_front_deps, $front_filetime );
 
 //エディター用のCSSファイルを登録
-// add_editor_style('/../../plugins/'.RJE_R001CORP_DIRNAME.'/'.$common_filename);
-wp_register_style( 'is-style-' . $basename . '-editor', RJE_R001CORP_URL . $editor_filename, $this->style_editor_deps, $editor_filetime );
-
-
+add_editor_style('/../../plugins/'.RJE_R001CORP_DIRNAME.'/'.$front_filename);
+// wp_register_style( 'is-style-' . $basename . '-editor', RJE_R001CORP_URL . $editor_filename, $this->style_editor_deps, $editor_filetime ); //TODO：必要なければ消す

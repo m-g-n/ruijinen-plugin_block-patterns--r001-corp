@@ -54,6 +54,7 @@ class Bootstrap {
 	public function __construct() {
 		add_action( 'plugins_loaded', [ $this, 'bootstrap' ] );
 		add_action( 'init', [ $this, 'load_textdomain' ] );
+		add_theme_support( 'editor-styles' ); //TODO: あとでちゃんと別の場所に移動する
 	}
 
 	/**
