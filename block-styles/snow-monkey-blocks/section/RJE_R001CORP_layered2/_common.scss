@@ -56,6 +56,7 @@
 											&::after{
 												width: 120px;
 												margin-top: i.px_to_rem(24);
+												margin-left: 0;
 												background-color: #CFCFCF;
 												@include i.mq(md){
 													display: none;

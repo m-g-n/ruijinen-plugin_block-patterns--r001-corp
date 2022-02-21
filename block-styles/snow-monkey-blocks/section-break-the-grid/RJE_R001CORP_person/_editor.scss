@@ -1,0 +1,47 @@
+// ======================================================
+//
+// ブロックスタイル - 人物キャッチ（エディター固有のスタイル）
+//
+// ======================================================
+
+// ------------------------------------------------------
+// 設定・読み込み・変数など
+// ------------------------------------------------------
+// @use "../../../../src/css/variable" as v;
+// @use "../../../../src/css/import" as i;
+
+// ------------------------------------------------------
+// スタイル
+// ------------------------------------------------------
+.is-style-RJE_R001CORP_person:not(:root){
+	&.smb-section-break-the-grid--top,
+	&.smb-section-break-the-grid--bottom,
+	&.smb-section-break-the-grid--mobile-text,
+	&.smb-section-break-the-grid--mobile-nowrap{
+		border: 1px dotted #e00;
+		&::before{
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: block;
+			padding: 0.25rem;
+			background-color: rgba(#e00, 0.7);
+			font-size: 0.75rem;
+			font-weight: bold;
+			color: #fff;
+			z-index: 2;
+		}
+	}
+	&.smb-section-break-the-grid--top,
+	&.smb-section-break-the-grid--bottom{
+		&::before{
+			content: "メディアを上/下に表示は非推奨です";
+		}
+	}
+	&.smb-section-break-the-grid--mobile-text,
+	&.smb-section-break-the-grid--mobile-nowrap{
+		&::before{
+			content: "このモバイルの配置の設定は非推奨です";
+		}
+	}
+}

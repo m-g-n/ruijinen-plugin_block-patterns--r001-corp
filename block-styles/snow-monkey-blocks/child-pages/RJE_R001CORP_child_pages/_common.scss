@@ -42,6 +42,7 @@
 	}
 	.c-entries--simple{
 		border: none;
+		flex-grow: 1;
 		@include i.mq(md){
 			position: relative;
 			display: flex;
