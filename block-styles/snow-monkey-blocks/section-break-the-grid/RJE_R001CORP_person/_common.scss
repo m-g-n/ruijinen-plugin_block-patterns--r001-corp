@@ -62,8 +62,6 @@
 	.smb-section-break-the-grid__figure{
 		@include i.mq(sm,max,true){
 			margin-bottom: 0 !important;
-			right: -90px !important;
-			text-align: right;
 		}
 		@include i.mq(sm){
 			@include i.mq(lg,max,true){
@@ -88,7 +86,7 @@
 	}
 	.smb-section-break-the-grid__lede{
 		font-size: i.px_to_rem(12);
-		@include i.mq(md){
+		@include i.mq(lg){
 			margin-top: i.px_to_rem(40);
 			font-size: 1rem;
 		}
@@ -99,6 +97,24 @@
 			font-size:  i.px_to_rem(18);
 			@include i.mq(md){
 				font-size: i.px_to_rem(24);
+			}
+		}
+	}
+	// 画像左の場合
+	&.smb-section-break-the-grid--left{
+		.smb-section-break-the-grid__figure{
+			@include i.mq(sm,max,true){
+				left: -90px !important;
+				text-align: left;
+			}
+		}
+	}
+	// 画像右の場合
+	&.smb-section-break-the-grid--right{
+		.smb-section-break-the-grid__figure{
+			@include i.mq(sm,max,true){
+				right: -90px !important;
+				text-align: right;
 			}
 		}
 	}
