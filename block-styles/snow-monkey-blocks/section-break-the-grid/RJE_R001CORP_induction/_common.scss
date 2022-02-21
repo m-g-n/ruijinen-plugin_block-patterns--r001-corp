@@ -87,7 +87,7 @@ $text_width: 41.2%;
 			}
 		}
 		.smb-section-break-the-grid__content{
-			padding: i.px_to_rem(24) i.px_to_rem(20);
+			padding: i.px_to_rem(24) i.px_to_rem(20) i.px_to_rem(32);
 			@include i.mq(lg){
 				padding: 3rem;
 			}
