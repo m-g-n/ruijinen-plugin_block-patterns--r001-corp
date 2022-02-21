@@ -67,11 +67,10 @@ body:not([data-has-sidebar="true"]){
 											@include i.mq(md){
 												flex: auto;
 												max-width: none;
+												border-left: 1px solid #CFCFCF;
 											}
 											@include i.mq(lg){
 												padding-left: 45px;
-												border-left: 1px solid #CFCFCF;
-												
 											}
 										}
 										> .smb-section__header{
