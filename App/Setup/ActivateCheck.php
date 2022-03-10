@@ -25,7 +25,7 @@ class ActivateCheck {
 
 	//必要なパッケージがアクティベートされてない場合のエラーメッセージ
 	public function make_alert_message() {
-		$alert_html = '<div class="notice notice-warning is-dismissible"><p><strong>[類人猿コーポレートサイトパターン集]</strong></p>';
+		$alert_html = '<div class="notice notice-warning is-dismissible"><p><strong>[類人猿企業サイト向けパターン集]</strong></p>';
 		foreach ( $this->messages as $text ) {
 			$alert_html .= '<p>'.$text.'</p>';
 		}

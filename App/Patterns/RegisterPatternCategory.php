@@ -15,7 +15,7 @@ class RegisterCategory {
 		add_action(
 			'init',
 			function() {
-				register_block_pattern_category( RJE_R001CORP_KEY, array( 'label' => '[類人猿] コーポレート' ) );
+				register_block_pattern_category( RJE_R001CORP_KEY, array( 'label' => '[類人猿] 企業サイト' ) );
 			}
 		);
 	}
