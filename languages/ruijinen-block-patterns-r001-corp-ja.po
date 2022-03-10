@@ -27,7 +27,7 @@ msgstr ""
 #: inc/activate.php:28
 msgid "[RUI-JIN-EN Block Patterns] To use the Corplate patterns, you need the rui-jin-en Block Patterns plugin."
 msgstr ""
-"【類人猿ブロックパターン】コーポレートサイト向けパターン集をご利用するには類人猿ブロックパターンプラグインが必要です."
+"【類人猿ブロックパターン】企業サイト向けパターン集をご利用するには類人猿ブロックパターンプラグインが必要です."
 
 #. Description of the plugin/theme
 msgid "This plugin contains a block pattern that makes your Snow Monkey site look nicer."
