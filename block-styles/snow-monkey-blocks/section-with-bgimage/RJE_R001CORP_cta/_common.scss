@@ -21,6 +21,9 @@
 		padding-right: i.px_to_rem(20);
 		padding-left: i.px_to_rem(20);
 	}
+	.smb-section-with-bgimage__bgimage{
+		background-color: unset;
+	}
 	.smb-section__title{
 		display: flex;
 		justify-content: center;

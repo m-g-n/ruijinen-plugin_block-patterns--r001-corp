@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin name: 類人猿ブロックパターン：コーポレートサイト向けパターン集
- * Description: 類人猿ブロックパターン コーポレートサイト向けパターンアドオンです
- * Version: 0.0.0.0.7
+ * Plugin name: 類人猿ブロックパターン：企業サイト向けパターン集
+ * Description: 類人猿ブロックパターン 企業サイト向けパターンアドオンです
+ * Version: 0.0.0.0.8
  * Tested up to: 5.9
  * Requires at least: 5.9
  * Author: mgn Inc.,
@@ -12,11 +12,7 @@
  * @package ruijinen-block-patterns
  */
 
-
-//TODO: 各ファイルの翻訳を作る
-
 namespace Ruijinen\Pattern\R001CORP;
-
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -54,7 +50,6 @@ class Bootstrap {
 	public function __construct() {
 		add_action( 'plugins_loaded', [ $this, 'bootstrap' ] );
 		add_action( 'init', [ $this, 'load_textdomain' ] );
-		add_theme_support( 'editor-styles' ); //TODO: あとでちゃんと別の場所に移動する
 	}
 
 	/**
@@ -71,10 +66,9 @@ class Bootstrap {
 		}
 
 		// コーポレートパターン用の汎用CSS・JS読み込み・テンプレートの読み込み
+		add_theme_support( 'editor-styles' );
 		new App\Setup\Assets();
 		$this->register_patterns();
-
-		// add_action( 'plugins_loaded', [ $this, 'test_remove_hook' ], 20 ); //TODO:テスト
 	}
 
 	/**
@@ -91,15 +85,6 @@ class Bootstrap {
 		global $rje_r001corp_patterns;
 		$rje_r001corp_patterns = new App\Patterns\RegisterPatterns();
 		new App\Patterns\RegisterCategory();
-	}
-
-	/**
-	 * remove テスト.
-	 */
-	public function test_remove_hook () {
-		//TODO：静的メソッドでフックの関数のエリアを指定したい
-		global $rje_r001corp_patterns;
-		remove_filter( 'rje_register_patterns_args', array( $rje_r001corp_patterns, 'layered1' ), 10 );
 	}
 }
 

@@ -11,7 +11,6 @@ class RegisterPatterns {
 	/**
 	 * Constructor.
 	 */
-	//TODO:できればpublic static化して静的メソッドとして呼び出したい
 	public function __construct() {
 		// 登録するパターンをhookに追加
 		add_filter( 'rje_register_patterns_args', array( $this, 'layered1' ), 10 );
