@@ -32,4 +32,3 @@ wp_register_style( 'is-style-' . $basename . '-front', RJE_R001CORP_URL . $front
 
 //エディター用のCSSファイルを登録
 add_editor_style('../../plugins/'.RJE_R001CORP_DIRNAME.'/'.$front_filename);
-// wp_register_style( 'is-style-' . $basename . '-editor', RJE_R001CORP_URL . $editor_filename, $this->style_editor_deps, $editor_filetime ); //TODO：必要なければ消す
