@@ -138,6 +138,7 @@ $text_width: 41.2%;
 			.wp-block-button__link{
 				padding: 0.41em 1.12em;
 				font-size: i.px_to_rem(18);
+				transition: all 0.3s;
 				@include i.mq(lg){
 					min-width: 250px;
 				}
