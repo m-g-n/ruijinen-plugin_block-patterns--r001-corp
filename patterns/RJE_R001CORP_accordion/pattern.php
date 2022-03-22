@@ -7,11 +7,11 @@
 
 <!-- wp:snow-monkey-blocks/accordion-item -->
 <div class="wp-block-snow-monkey-blocks-accordion-item smb-accordion__item"><input type="checkbox" class="smb-accordion__item__control"/><div class="smb-accordion__item__title"><span class="smb-accordion__item__title__label">見積もりを出してもらってから、実際に案件がスタートするまでのフローを教えてください。</span><div class="smb-accordion__item__title__icon"><i class="fas fa-angle-down"></i></div></div><div class="smb-accordion__item__body"><!-- wp:paragraph -->
-<p>こちらの図をご覧ください。</p>
+<p>フローについては現在整備中です。少々お待ちください</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="<?php echo esc_url( RJE_R001CORP_URL ); ?>dist/img/accordion-sample-1.png" alt=""/></figure>
+<figure class="wp-block-image size-large"><img src="<?php echo esc_url( RJE_R001CORP_URL ); ?>dist/img/accordion-sample-1.jpg" alt=""/></figure>
 <!-- /wp:image --></div></div>
 <!-- /wp:snow-monkey-blocks/accordion-item -->
 

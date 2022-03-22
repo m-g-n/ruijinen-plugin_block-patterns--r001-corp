@@ -3,7 +3,7 @@
 <div class="wp-block-snow-monkey-blocks-information-item smb-information__item"><div class="c-row"><div class="c-row__col c-row__col--1-1 c-row__col--md-1-4"><div class="smb-information__item__label">2015</div></div><div class="c-row__col c-row__col--1-1 c-row__col--md-3-4"><div class="smb-information__item__body"><!-- wp:snow-monkey-blocks/media-text {"titleTagName":"h3","mediaType":"image","verticalAlignment":"top","mediaColumnSize":"33"} -->
 <div class="wp-block-snow-monkey-blocks-media-text smb-media-text"><div class="c-row c-row--margin c-row--top"><div class="c-row__col c-row__col--1-1 c-row__col--lg-2-3"><h3 class="smb-media-text__title">（株）mgn 設立</h3><div class="smb-media-text__body"><!-- wp:paragraph -->
 <p>2012年5月にフリーランスのWeb制作者として大串が活動を開始してからおよそ3年半、2015年10月にmgnは産声を上げました。</p>
-<!-- /wp:paragraph --></div></div><div class="c-row__col c-row__col--1-1 c-row__col--lg-1-3"><div class="smb-media-text__figure"><img src="<?php echo esc_url( RJE_R001CORP_URL ); ?>dist/img/chronology-sample-1.png" alt="" width="536" height="400" class="wp-image-0"/></div></div></div></div>
+<!-- /wp:paragraph --></div></div><div class="c-row__col c-row__col--1-1 c-row__col--lg-1-3"><div class="smb-media-text__figure"><img src="<?php echo esc_url( RJE_R001CORP_URL ); ?>dist/img/chronology-sample-1.jpg" alt="" width="371" height="275" class="wp-image-0"/></div></div></div></div>
 <!-- /wp:snow-monkey-blocks/media-text -->
 
 <!-- wp:paragraph -->
@@ -19,7 +19,7 @@
 <div class="wp-block-snow-monkey-blocks-information-item smb-information__item"><div class="c-row"><div class="c-row__col c-row__col--1-1 c-row__col--md-1-4"><div class="smb-information__item__label">2016</div></div><div class="c-row__col c-row__col--1-1 c-row__col--md-3-4"><div class="smb-information__item__body"><!-- wp:snow-monkey-blocks/media-text {"titleTagName":"h3","mediaType":"image","verticalAlignment":"top","mediaColumnSize":"33"} -->
 <div class="wp-block-snow-monkey-blocks-media-text smb-media-text"><div class="c-row c-row--margin c-row--top"><div class="c-row__col c-row__col--1-1 c-row__col--lg-2-3"><h3 class="smb-media-text__title">megane.inの開設</h3><div class="smb-media-text__body"><!-- wp:paragraph -->
 <p>megane.inは、Web業界で働くために必要なスキルを配信する動画サイト。<br>大串は持ち前のトーク力と、日々の労働で得た知識で、業界に貢献できるようなコンテンツを配信したいと、このサイトを立ち上げました。</p>
-<!-- /wp:paragraph --></div></div><div class="c-row__col c-row__col--1-1 c-row__col--lg-1-3"><div class="smb-media-text__figure"><img src="<?php echo esc_url( RJE_R001CORP_URL ); ?>dist/img/chronology-sample-2.png" alt="" width="536" height="400" class="wp-image-0"/></div></div></div></div>
+<!-- /wp:paragraph --></div></div><div class="c-row__col c-row__col--1-1 c-row__col--lg-1-3"><div class="smb-media-text__figure"><img src="<?php echo esc_url( RJE_R001CORP_URL ); ?>dist/img/chronology-sample-2.jpg" alt="" width="371" height="275" class="wp-image-0"/></div></div></div></div>
 <!-- /wp:snow-monkey-blocks/media-text -->
 
 <!-- wp:paragraph -->
