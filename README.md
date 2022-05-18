@@ -8,8 +8,8 @@ WordPressテーマ Snow Monkeyを拡張する「類人猿ブロックパター�
 当プラグインディレクトリーまで移動したあと、
 
 - npm i でpackegeをインストール
-- npm watch でSCSSファイルの修正を常時監視（SCSSを修正したら即時CSSにコンパイルしてくれる）
-- npx build でCSSにコンパイル（コマンド走ったときだけCSSをコンパイル）
+- npm run watch でSCSSファイルの修正を常時監視（SCSSを修正したら即時CSSにコンパイルしてくれる）
+- npm run build でCSSにコンパイル（コマンド走ったときだけCSSをコンパイル）
 
 # comporserの準備
 
@@ -18,6 +18,10 @@ WordPressテーマ Snow Monkeyを拡張する「類人猿ブロックパター�
 - composer install でパッケージをインストール
 
 # 変更履歴
+## 1.5.0
+- バージョン番号を2桁繰り上げし、冒頭の番号を1に変更
+- composer.jsonのパッケージ名の変更（installエラーの対応）
+
 ## 0.0.0.4
 - シンプルな項目のダミーテキストを変更
 
@@ -29,3 +33,5 @@ WordPressテーマ Snow Monkeyを拡張する「類人猿ブロックパター�
 
 ## 0.0.0.1
 - 製品版リリース
+
+※テストのためテキスト追記しました※
