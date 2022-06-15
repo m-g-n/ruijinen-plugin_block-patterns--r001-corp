@@ -13,6 +13,26 @@
 // スタイル
 // ------------------------------------------------------
 .is-style-RJE_R001CORP_history_year{
-	padding: 1rem 0.5rem 0.5rem;
+	position: relative;
+	padding: 1rem 0.5rem 2.5rem;
 	border: 1px dotted #cd162c;
+	> .smb-information__body{
+		//追加ボタンを消す
+		> .block-list-appender{
+			button{
+				pointer-events: none;
+				opacity: 0.1;
+			}
+		}
+	}
+	&::before{
+		content: "新しい年を追加したい場合は既存の子ブロックを複製し追加ください";
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		display: block;
+		font-size: 0.86rem;
+		text-align: center;
+		color: #e00;
+	}
 }
