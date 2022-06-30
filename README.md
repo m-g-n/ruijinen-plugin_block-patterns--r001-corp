@@ -4,20 +4,28 @@
 WordPressテーマ Snow Monkeyを拡張する「類人猿ブロックパターンプラグイン」のコーポレートサイト向けパターン集アドオンです
 
 # SCSSのコンパイル方法
-
-当プラグインディレクトリーまで移動したあと、
-
-- npm i でpackegeをインストール
+- npm ci でpackegeをインストール
 - npm run watch でSCSSファイルの修正を常時監視（SCSSを修正したら即時CSSにコンパイルしてくれる）
 - npm run build でCSSにコンパイル（コマンド走ったときだけCSSをコンパイル）
 
 # comporserの準備
-
-当プラグインディレクトリーまで移動したあと、
-
 - composer install でパッケージをインストール
 
+# wp-envによる開発環境の立ち上げ・終了
+- `npm run start`で開発環境が立ち上がります
+- `npm run stop`でテーマ・SQLをエクスポートし、開発環境が止まります
+- なにかトラブルがあって、前終了した状態に戻したい場合は`npm run import`を実行ください
+
+## その他
+- 初期状態ではSnow Monkeyテーマは入っていません。手動でインストールください
+- wp-envのことについては公式ハンドブックをご覧ください
+https://ja.wordpress.org/team/handbook/block-editor/reference-guides/packages/packages-env/
+
 # 変更履歴
+## 1.7.0
+- 開発環境をLocalアプリからwp-envに変更
+- 機械チェックの導入（一旦BackstopJS）
+
 ## 1.6.0
 - アクセスMAPパターンのHTMLについて親divをコードからグループブロックへ変更
 - 沿革パターンのアイテム追加ボタンを非表示にし、追加は複製から行う警告メッセージを表示する形に変更
@@ -37,5 +45,3 @@ WordPressテーマ Snow Monkeyを拡張する「類人猿ブロックパター�
 
 ## 0.0.0.1
 - 製品版リリース
-
-※テストのためテキスト追記しました※
