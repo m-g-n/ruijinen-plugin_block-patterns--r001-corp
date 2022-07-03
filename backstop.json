@@ -22,27 +22,7 @@
       "height": 768
     }
   ],
-  "scenarios": [
-    {
-      "label": "home",
-      "cookiePath": "backstop_data/engine_scripts/cookies.json",
-      "url": "http://localhost:1011/",
-      "referenceUrl": "",
-      "readyEvent": "",
-      "readySelector": "",
-      "delay": 4000,
-      "hideSelectors": [],
-      "removeSelectors": [],
-      "hoverSelector": "",
-      "clickSelector": "",
-      "postInteractionWait": 0,
-      "selectors": [],
-      "selectorExpansion": true,
-      "expect": 0,
-      "misMatchThreshold" : 0.1,
-      "requireSameDimensions": true
-    }
-  ],
+  "scenarios": [],
   "paths": {
     "bitmaps_reference": "backstop_data/bitmaps_reference",
     "bitmaps_test": "backstop_data/bitmaps_test",
@@ -55,7 +35,7 @@
   "engineOptions": {
     "args": ["--no-sandbox"]
   },
-  "asyncCaptureLimit": 5,
+  "asyncCaptureLimit": 2,
   "asyncCompareLimit": 50,
   "debug": false,
   "debugWindow": false

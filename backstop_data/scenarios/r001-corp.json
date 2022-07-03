@@ -1,0 +1,164 @@
+[
+	{
+		"label": "RJE_R001CORP_layered1",
+		"url": "http://localhost:1011/rje_r001corp_layered1",
+		"referenceUrl": "",
+		"delay": 2000,
+		"selectors": [".p-entry-content"],
+		"selectorExpansion": true,
+		"misMatchThreshold": 0.1
+	},
+	{
+		"label": "RJE_R001CORP_layered2",
+		"url": "http://localhost:1011/rje_r001corp_layered2",
+		"referenceUrl": "",
+		"delay": 2000,
+		"selectors": [".p-entry-content"],
+		"selectorExpansion": true,
+		"misMatchThreshold": 0.1
+	},
+	{
+		"label": "RJE_R001CORP_person",
+		"url": "http://localhost:1011/rje_r001corp_person",
+		"referenceUrl": "",
+		"delay": 2000,
+		"selectors": [".p-entry-content"],
+		"selectorExpansion": true,
+		"misMatchThreshold": 0.1
+	},
+	{
+		"label": "RJE_R001CORP_recent_posts",
+		"url": "http://localhost:1011/rje_r001corp_recent_posts",
+		"referenceUrl": "",
+		"delay": 2000,
+		"selectors": [".p-entry-content"],
+		"selectorExpansion": true,
+		"misMatchThreshold": 0.1
+	},
+	{
+		"label": "RJE_R001CORP_tax_posts",
+		"url": "http://localhost:1011/rje_r001corp_tax_posts",
+		"referenceUrl": "",
+		"delay": 2000,
+		"selectors": [".p-entry-content"],
+		"selectorExpansion": true,
+		"misMatchThreshold": 0.1
+	},
+	{
+		"label": "RJE_R001CORP_simple_items",
+		"url": "http://localhost:1011/rje_r001corp_simple_items",
+		"referenceUrl": "",
+		"delay": 2000,
+		"selectors": [".p-entry-content"],
+		"selectorExpansion": true,
+		"misMatchThreshold": 0.1
+	},
+	{
+		"label": "RJE_R001CORP_items_with_bg",
+		"url": "http://localhost:1011/rje_r001corp_items_with_bg",
+		"referenceUrl": "",
+		"delay": 2000,
+		"selectors": [".p-entry-content"],
+		"selectorExpansion": true,
+		"misMatchThreshold": 0.1
+	},
+	{
+		"label": "RJE_R001CORP_one_column_items",
+		"url": "http://localhost:1011/rje_r001corp_one_column_items",
+		"referenceUrl": "",
+		"delay": 2000,
+		"selectors": [".p-entry-content"],
+		"selectorExpansion": true,
+		"misMatchThreshold": 0.1
+	},
+	{
+		"label": "RJE_R001CORP_steps",
+		"url": "http://localhost:1011/rje_r001corp_steps",
+		"referenceUrl": "",
+		"delay": 2000,
+		"selectors": [".p-entry-content"],
+		"selectorExpansion": true,
+		"misMatchThreshold": 0.1
+	},
+	{
+		"label": "RJE_R001CORP_induction",
+		"url": "http://localhost:1011/rje_r001corp_induction",
+		"referenceUrl": "",
+		"delay": 2000,
+		"selectors": [".p-entry-content"],
+		"selectorExpansion": true,
+		"misMatchThreshold": 0.1
+	},
+	{
+		"label": "RJE_R001CORP_infomation",
+		"url": "http://localhost:1011/rje_r001corp_infomation",
+		"referenceUrl": "",
+		"delay": 2000,
+		"selectors": [".p-entry-content"],
+		"selectorExpansion": true,
+		"misMatchThreshold": 0.1
+	},
+	{
+		"label": "RJE_R001CORP_chronology",
+		"url": "http://localhost:1011/rje_r001corp_chronology",
+		"referenceUrl": "",
+		"delay": 2000,
+		"selectors": [".p-entry-content"],
+		"selectorExpansion": true,
+		"misMatchThreshold": 0.1
+	},
+	{
+		"label": "RJE_R001CORP_accordion",
+		"url": "http://localhost:1011/rje_r001corp_accordion",
+		"referenceUrl": "",
+		"delay": 2000,
+		"selectors": [".p-entry-content"],
+		"selectorExpansion": true,
+		"misMatchThreshold": 0.1
+	},
+	{
+		"label": "RJE_R001CORP_history",
+		"url": "http://localhost:1011/rje_r001corp_history",
+		"referenceUrl": "",
+		"delay": 2000,
+		"selectors": [".p-entry-content"],
+		"selectorExpansion": true,
+		"misMatchThreshold": 0.1
+	},
+	{
+		"label": "RJE_R001CORP_access",
+		"url": "http://localhost:1011/rje_r001corp_access",
+		"referenceUrl": "",
+		"delay": 2000,
+		"selectors": [".p-entry-content"],
+		"selectorExpansion": true,
+		"misMatchThreshold": 0.1
+	},
+	{
+		"label": "RJE_R001CORP_banners",
+		"url": "http://localhost:1011/rje_r001corp_banners",
+		"referenceUrl": "",
+		"delay": 2000,
+		"selectors": [".p-entry-content"],
+		"selectorExpansion": true,
+		"misMatchThreshold": 0.1
+	},
+	{
+		"label": "RJE_R001CORP_child_pages",
+		"url": "http://localhost:1011/rje_r001corp_child_pages",
+		"referenceUrl": "",
+		"delay": 2000,
+		"selectors": [".p-entry-content"],
+		"selectorExpansion": true,
+		"misMatchThreshold": 0.1
+	},
+	{
+		"label": "RJE_R001CORP_cta",
+		"url": "http://localhost:1011/rje_r001corp_cta",
+		"referenceUrl": "",
+		"delay": 2000,
+		"selectors": [".p-entry-content"],
+		"selectorExpansion": true,
+		"misMatchThreshold": 0.1
+	}
+]
