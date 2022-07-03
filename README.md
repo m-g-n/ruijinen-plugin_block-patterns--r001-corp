@@ -22,6 +22,10 @@ WordPressテーマ Snow Monkeyを拡張する「類人猿ブロックパター�
 https://ja.wordpress.org/team/handbook/block-editor/reference-guides/packages/packages-env/
 
 # 変更履歴
+## 1.7.1
+- 一部node のパッケージのインストール漏れがあったので追加
+- zip化するときに不要なファイルを除去するように修正
+
 ## 1.7.0
 - 開発環境をLocalアプリからwp-envに変更
 - 機械チェックの導入（一旦BackstopJS）
