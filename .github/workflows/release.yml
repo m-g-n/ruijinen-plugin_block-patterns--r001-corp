@@ -12,7 +12,7 @@ jobs:
     #nodeのバージョン設定 参考 https://docs.github.com/ja/free-pro-team@latest/actions/guides/building-and-testing-nodejs
     strategy:
       matrix:
-        node-version: [14.x] 
+        node-version: [14.x]
 
     steps:
       - name: Checkout code
@@ -60,23 +60,23 @@ jobs:
           prerelease: false
 
       # release用のzip作成 https://github.com/marketplace/actions/zip-release
-      - name: Zip Release 
+      - name: Zip Release
         uses: TheDoctor0/zip-release@0.4.1
         with:
           filename: 'ruijinen-block-patterns-r001-corp.zip' # ファイル名
-          exclusions: '*.git* /*node_modules/* .editorconfig /*src/*scss/*' # 除外設定
+          exclusions: '*.git* /*node_modules/* .editorconfig /*src/*scss/* /*.export/* .wp-env.json /*backstop_data/* version.json' # 除外設定
           directory: '.'
           path: '.'
           type: 'zip'
 
       # releaseにzipファイルを添付
       - name: Upload Release Asset
-        id: upload-release-asset 
+        id: upload-release-asset
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
           asset_path: ./ruijinen-block-patterns-r001-corp.zip
           asset_name: ruijinen-block-patterns-r001-corp.zip
           asset_content_type: application/zip
