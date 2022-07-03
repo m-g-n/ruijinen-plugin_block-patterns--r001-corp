@@ -10,7 +10,8 @@ dist/css/
 dist/js/
 
 ## wp-env
-/.export/*
+/.export/wp-content/
+/.export/sql/
 
 ## Backstop JS
 backstop_data/bitmaps_reference/
