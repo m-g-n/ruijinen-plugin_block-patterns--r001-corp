@@ -18,7 +18,10 @@
 		"postcss-sort-media-queries": "^4.2.1",
 		"sass": "^1.49.0",
 		"stylelint-order": "^5.0.0",
-    "backstopjs": "^5.3.4"
+    "backstopjs": "^5.3.4",
+    "glob": "^8.0.1",
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2"
   },
   "scripts": {
     "export:wp-content:themes": "yarn cli 'cp -r wp-content/themes .export/wp-content'",
