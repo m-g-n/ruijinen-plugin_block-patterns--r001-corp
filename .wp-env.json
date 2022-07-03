@@ -1,0 +1,25 @@
+{
+  "core": "https://ja.wordpress.org/latest-ja.zip",
+  "plugins": [
+      ".",
+      "https://downloads.wordpress.org/plugin/query-monitor.zip",
+      "https://downloads.wordpress.org/plugin/snow-monkey-blocks.zip",
+      "https://downloads.wordpress.org/plugin/snow-monkey-editor.zip",
+      "https://downloads.wordpress.org/plugin/wordpress-beta-tester.zip",
+      "https://downloads.wordpress.org/plugin/duplicate-post.zip",
+      "https://github.com/m-g-n/ruijinen-plugin_block-patterns/releases/latest/download/ruijinen-block-patterns.zip"
+  ],
+	"port": 1011,
+  "env": {
+    "tests": {
+      "port": 1012
+    }
+  },
+  "config": {
+    "WP_DEBUG": true
+  },
+  "mappings": {
+    ".export": "./.export",
+    "php.ini": "./.export/php.ini"
+  }
+}
