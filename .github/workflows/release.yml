@@ -64,7 +64,7 @@ jobs:
         uses: TheDoctor0/zip-release@0.4.1
         with:
           filename: 'ruijinen-block-patterns-r001-corp.zip' # ファイル名
-          exclusions: '*.git* /*node_modules/* .editorconfig /*src/*scss/* /*.export/* .wp-env.json /*backstop_data/* version.json' # 除外設定
+          exclusions: '*.git* /*node_modules/* .editorconfig /*src/*scss/* /*.export/* .wp-env.json /*backstop_data/* backstop.json version.json' # 除外設定
           directory: '.'
           path: '.'
           type: 'zip'
