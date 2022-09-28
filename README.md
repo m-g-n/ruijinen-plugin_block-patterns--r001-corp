@@ -25,7 +25,7 @@ https://ja.wordpress.org/team/handbook/block-editor/reference-guides/packages/pa
 ## 1.8.0
 - 画像をdist/img直ではなくsrc/imgから出力する形に変更
 - Snow Monkey依存スタイル名取得用のプロパティ名の変更
-- GitHub Actionsの調整
+- GitHub ActionsについてPRのマージなしのcloseは動かないように調整
 - Nodeパッケージの更新
 ## 1.7.1
 - 一部node のパッケージのインストール漏れがあったので追加
