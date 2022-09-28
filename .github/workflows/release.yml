@@ -9,6 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
     #nodeのバージョン設定 参考 https://docs.github.com/ja/free-pro-team@latest/actions/guides/building-and-testing-nodejs
     strategy:
       matrix:
