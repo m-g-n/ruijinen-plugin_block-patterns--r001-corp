@@ -1,7 +1,7 @@
 <?php
 /**
  * 1カラムの項目固有のスタイルを登録
- * 
+ *
  * @package ruijinen-block-patterns
  * @author mgn
  * @license GPL-2.0+
@@ -15,4 +15,4 @@ $front_filetime = ( file_exists( RJE_R001CORP_PATH . $front_filename ) ) ? filem
 $editor_filetime = ( file_exists( RJE_R001CORP_PATH . $editor_filename ) ) ? filemtime( RJE_R001CORP_PATH . $editor_filename ) : NULL;
 
 //フロント・エディター用のCSSファイルを登録
-wp_register_style( $basename . '-editor', RJE_R001CORP_URL . $editor_filename, $this->style_editor_deps, $front_filetime );
+wp_register_style( $basename . '-editor', RJE_R001CORP_URL . $editor_filename, $this->sm_style_handles, $front_filetime );
