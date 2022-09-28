@@ -22,6 +22,11 @@ WordPressテーマ Snow Monkeyを拡張する「類人猿ブロックパター�
 https://ja.wordpress.org/team/handbook/block-editor/reference-guides/packages/packages-env/
 
 # 変更履歴
+## 1.8.0
+- 画像をdist/img直ではなくsrc/imgから出力する形に変更
+- Snow Monkey依存スタイル名取得用のプロパティ名の変更
+- GitHub ActionsについてPRのマージなしのcloseは動かないように調整
+- Nodeパッケージの更新
 ## 1.7.1
 - 一部node のパッケージのインストール漏れがあったので追加
 - zip化するときに不要なファイルを除去するように修正
