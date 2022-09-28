@@ -5,20 +5,25 @@
   "license": "GPL-2.0+",
   "main": "index.js",
   "devDependencies": {
-    "@wordpress/env": "^5.0.0",
-    "@wordpress/scripts": "^23.6.0",
-    "autoprefixer": "^10.4.7",
+    "@wordpress/env": "^5.3.0",
+    "@wordpress/scripts": "^24.2.0",
+    "autoprefixer": "^10.4.12",
     "backstopjs": "^6.1.1",
-    "cpy-cli": "^4.1.0",
-    "cssnano": "^5.0.16",
+    "cpy-cli": "^4.2.0",
+    "cssnano": "^5.1.13",
     "del-cli": "^5.0.0",
     "glob": "^8.0.1",
+    "imagemin-gifsicle": "^7.0.0",
+    "imagemin-keep-folder": "^5.3.2",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-pngquant": "9.0.2",
+    "imagemin-svgo": "10.0.1",
     "npm-run-all": "^4.1.5",
-    "postcss": "^8.4.5",
+    "postcss": "^8.4.16",
     "postcss-cli": "^10.0.0",
-    "postcss-sort-media-queries": "^4.2.1",
+    "postcss-sort-media-queries": "^4.3.0",
     "rimraf": "^3.0.2",
-    "sass": "^1.49.0",
+    "sass": "^1.55.0",
     "stylelint-order": "^5.0.0",
     "webpack": "^5.72.0",
     "webpack-cli": "^4.9.2"
@@ -40,10 +45,11 @@
     "cli": "wp-env run cli",
     "wp": "wp-env run cli wp",
     "clean": "run-s clean:**",
-    "clean:css": "del-cli dist/css/**/* -f",
+    "clean:all": "del-cli dist/**/* dist/**/* -f",
     "build": "run-s clean build:**",
     "build:sass": "sass src/css:dist/css block-styles:dist/css/block-styles patterns:dist/css/patterns --no-error-css --no-source-map",
     "build:postcss": "postcss dist/css --base ./dist/css -d dist/css",
+    "build:img": "node imagemin.mjs",
     "debug:css": "sass src/css:dist/css block-styles:dist/css/block-styles patterns:dist/css/patterns",
     "watch": "run-s watch:css",
     "watch:css": "run-s clean:css watch:sass watch:postcss",
@@ -59,5 +65,8 @@
     "not ie < 11",
     "iOS >= 10",
     "Android >= 4.4"
-  ]
+  ],
+  "dependencies": {
+    "postcss-sorting": "^7.0.1"
+  }
 }
