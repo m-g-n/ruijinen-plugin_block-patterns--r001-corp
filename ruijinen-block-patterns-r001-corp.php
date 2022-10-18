@@ -2,9 +2,9 @@
 /**
  * Plugin name: 類人猿ブロックパターン：企業サイト向けパターン集
  * Description: 類人猿ブロックパターン 企業サイト向けパターンアドオンです
- * Version: 1.8.0
- * Tested up to: 6.0
- * Requires at least: 6.0
+ * Version: 1.9.0
+ * Tested up to: 6.0.3
+ * Requires at least: 6.0.3
  * Author: mgn Inc.,
  * Author URI: https://rui-jin-en.com/
  * License: GPL-2.0+
@@ -57,6 +57,7 @@ class Bootstrap {
 	 */
 	public function bootstrap() {
 		new App\Setup\AutoUpdate();
+		new App\Setup\InPluginUpdateMessage();
 
 		//アクティベートチェックを行い問題がある場合はメッセージを出し離脱する.
 		$activate_check = new App\Setup\ActivateCheck();
