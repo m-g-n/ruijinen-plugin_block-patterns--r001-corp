@@ -22,6 +22,11 @@ WordPressテーマ Snow Monkeyを拡張する「類人猿ブロックパター�
 https://ja.wordpress.org/team/handbook/block-editor/reference-guides/packages/packages-env/
 
 # 変更履歴
+## 1.9.0
+- シンプルな項目パターンの構造HTMLの修正
+- 背景画像あり項目パターンの構造HTMLの修正
+- 更新アラートボックスに任意のメッセージを付与できるような機能を追加
+
 ## 1.8.0
 - 画像をdist/img直ではなくsrc/imgから出力する形に変更
 - Snow Monkey依存スタイル名取得用のプロパティ名の変更
