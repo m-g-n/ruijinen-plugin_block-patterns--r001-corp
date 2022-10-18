@@ -57,6 +57,7 @@ class Bootstrap {
 	 */
 	public function bootstrap() {
 		new App\Setup\AutoUpdate();
+		new App\Setup\InPluginUpdateMessage();
 
 		//アクティベートチェックを行い問題がある場合はメッセージを出し離脱する.
 		$activate_check = new App\Setup\ActivateCheck();
