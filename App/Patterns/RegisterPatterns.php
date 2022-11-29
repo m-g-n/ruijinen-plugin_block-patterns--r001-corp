@@ -111,20 +111,18 @@ class RegisterPatterns {
 			add_filter( 'rje_register_patterns_args', array( $this, $method['name'] ), $method['priority'] );
 		}
 		//無効化のオプションページに情報を登録
-		if ( has_filter( 'rje_option_unregister_args' ) ) {
-			add_filter(
-				'rje_option_unregister_args',
-				function ( $args ) use ( $variable_name, $methods ) {
-					$corp = array(
-						'section_id'   => $variable_name,
-						'section_name' => '企業サイト向けパターン集',
-						'fields' => $methods
-					);
-					array_push( $args, $corp );
-					return $args;
-				}
-			);
-		}
+		add_filter(
+			'rje_option_unregister_args',
+			function ( $args ) use ( $variable_name, $methods ) {
+				$corp = array(
+					'section_id'   => $variable_name,
+					'section_name' => '企業サイト向けパターン集',
+					'fields' => $methods
+				);
+				array_push( $args, $corp );
+				return $args;
+			}
+		);
 	}
 
 	/**
