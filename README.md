@@ -1,6 +1,6 @@
 [![Create Release](https://github.com/m-g-n/ruijinen-plugin_block-patterns--r002-corp/actions/workflows/release.yml/badge.svg)](https://github.com/m-g-n/ruijinen-plugin_block-patterns--r002-corp/actions/workflows/release.yml)
 
-# 類人猿ブロックパターン：LP向けパターン集
+# 類人猿ブロックパターン：企業サイト向けパターン集
 WordPressテーマ Snow Monkeyを拡張する「類人猿ブロックパターンプラグイン」のコーポレートサイト向けパターン集アドオンです
 
 # SCSSのコンパイル方法
@@ -22,6 +22,12 @@ WordPressテーマ Snow Monkeyを拡張する「類人猿ブロックパター�
 https://ja.wordpress.org/team/handbook/block-editor/reference-guides/packages/packages-env/
 
 # 変更履歴
+## 2.0.0
+- 各パターンを無効化できる機能を実装
+- yarnをv1からv3にアップグレード
+- 各種パッケージをアップグレード
+- yarn run watchの調整
+- README.mdの誤字を修正
 ## 1.9.0
 - シンプルな項目パターンの構造HTMLの修正
 - 背景画像あり項目パターンの構造HTMLの修正
