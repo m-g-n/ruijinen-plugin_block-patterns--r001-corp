@@ -41,7 +41,7 @@
     "import:db": "yarn wp 'db import .export/sql/local.sql'",
     "import": "run-p 'import:*'",
     "wp-env": "wp-env",
-    "start": "wp-env start && open http://localhost:1001",
+    "start": "wp-env start && open http://localhost:1011",
     "stop": "yarn export && wp-env stop",
     "cli": "wp-env run cli",
     "wp": "wp-env run cli wp",
