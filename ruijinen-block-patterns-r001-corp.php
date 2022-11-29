@@ -84,7 +84,7 @@ class Bootstrap {
 	 */
 	public function register_patterns() {
 		global $rje_r001corp_patterns;
-		$rje_r001corp_patterns = new App\Patterns\RegisterPatterns();
+		$rje_r001corp_patterns = new App\Patterns\RegisterPatterns('rje_r001corp_patterns');
 		new App\Patterns\RegisterCategory();
 	}
 }

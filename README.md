@@ -24,7 +24,6 @@ https://ja.wordpress.org/team/handbook/block-editor/reference-guides/packages/pa
 # 変更履歴
 ## 2.0.0
 - 各パターンを無効化できる機能を実装
-- 更新アラートボックスメッセージ表示機能を追加
 - yarnをv1からv3にアップグレード
 - 各種パッケージをアップグレード
 - yarn run watchの調整

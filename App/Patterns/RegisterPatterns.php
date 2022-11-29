@@ -11,26 +11,120 @@ class RegisterPatterns {
 	/**
 	 * Constructor.
 	 */
-	public function __construct() {
-		// 登録するパターンをhookに追加
-		add_filter( 'rje_register_patterns_args', array( $this, 'layered1' ), 10 );
-		add_filter( 'rje_register_patterns_args', array( $this, 'layered2' ), 10 );
-		add_filter( 'rje_register_patterns_args', array( $this, 'person' ), 10 );
-		add_filter( 'rje_register_patterns_args', array( $this, 'recent_posts' ), 10 );
-		add_filter( 'rje_register_patterns_args', array( $this, 'tax_posts' ), 10 );
-		add_filter( 'rje_register_patterns_args', array( $this, 'simple_items' ), 10 );
-		add_filter( 'rje_register_patterns_args', array( $this, 'items_with_bg' ), 10 );
-		add_filter( 'rje_register_patterns_args', array( $this, 'one_column_items' ), 10 );
-		add_filter( 'rje_register_patterns_args', array( $this, 'steps' ), 10 );
-		add_filter( 'rje_register_patterns_args', array( $this, 'induction' ), 10 );
-		add_filter( 'rje_register_patterns_args', array( $this, 'infomation' ), 10 );
-		add_filter( 'rje_register_patterns_args', array( $this, 'chronology' ), 10 );
-		add_filter( 'rje_register_patterns_args', array( $this, 'accordion' ), 10 );
-		add_filter( 'rje_register_patterns_args', array( $this, 'history' ), 10 );
-		add_filter( 'rje_register_patterns_args', array( $this, 'access' ), 10 );
-		add_filter( 'rje_register_patterns_args', array( $this, 'banners' ), 10 );
-		add_filter( 'rje_register_patterns_args', array( $this, 'child_pages' ), 10 );
-		add_filter( 'rje_register_patterns_args', array( $this, 'cta' ), 10 );
+	public function __construct( $variable_name ) {
+
+		//フィルターに登録したいメソッドの情報
+		$methods = array(
+			array(
+				'name' => 'layered1',
+				'label' => '重なりキャッチ1',
+				'priority' => 10
+			),
+			array(
+				'name' => 'layered2',
+				'label' => '重なりキャッチ2',
+				'priority' => 10
+			),
+			array(
+				'name' => 'person',
+				'label' => '人物キャッチ',
+				'priority' => 10
+			),
+			array(
+				'name' => 'recent_posts',
+				'label' => '最新の投稿',
+				'priority' => 10
+			),
+			array(
+				'name' => 'tax_posts',
+				'label' => '任意のタクソノミーの投稿',
+				'priority' => 10
+			),
+			array(
+				'name' => 'simple_items',
+				'label' => 'シンプルな項目',
+				'priority' => 10
+			),
+			array(
+				'name' => 'items_with_bg',
+				'label' => '背景画像あり項目',
+				'priority' => 10
+			),
+			array(
+				'name' => 'one_column_items',
+				'label' => '1カラムの項目',
+				'priority' => 10
+			),
+			array(
+				'name' => 'steps',
+				'label' => '流れ',
+				'priority' => 10
+			),
+			array(
+				'name' => 'induction',
+				'label' => '任意ページへ誘導',
+				'priority' => 10
+			),
+			array(
+				'name' => 'infomation',
+				'label' => 'シンプルな情報',
+				'priority' => 10
+			),
+			array(
+				'name' => 'chronology',
+				'label' => '年表',
+				'priority' => 10
+			),
+			array(
+				'name' => 'accordion',
+				'label' => 'アコーディオン',
+				'priority' => 10
+			),
+			array(
+				'name' => 'history',
+				'label' => '沿革',
+				'priority' => 10
+			),
+			array(
+				'name' => 'access',
+				'label' => 'アクセスMAP',
+				'priority' => 10
+			),
+			array(
+				'name' => 'banners',
+				'label' => 'バナー',
+				'priority' => 10
+			),
+			array(
+				'name' => 'child_pages',
+				'label' => '子ページ一覧',
+				'priority' => 10
+			),
+			array(
+				'name' => 'cta',
+				'label' => 'お問い合わせ誘導',
+				'priority' => 10
+			)
+		);
+		//パターンの情報をフィルターに登録
+		foreach ( $methods as $method ) {
+			add_filter( 'rje_register_patterns_args', array( $this, $method['name'] ), $method['priority'] );
+		}
+		//無効化のオプションページに情報を登録
+		if ( has_filter( 'rje_option_unregister_args' ) ) {
+			add_filter(
+				'rje_option_unregister_args',
+				function ( $args ) use ( $variable_name, $methods ) {
+					$corp = array(
+						'section_id'   => $variable_name,
+						'section_name' => '企業サイト向けパターン集',
+						'fields' => $methods
+					);
+					array_push( $args, $corp );
+					return $args;
+				}
+			);
+		}
 	}
 
 	/**
