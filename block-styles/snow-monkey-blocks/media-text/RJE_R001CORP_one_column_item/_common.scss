@@ -51,6 +51,15 @@
 			}
 		}
 	}
+  .smb-media-text__title{
+    font-size: 1.2rem;
+    @include i.mq(lg){
+      font-size: 1.5rem;
+    }
+    img{
+      vertical-align: middle;
+    }
+  }
 	.smb-media-text__figure {
 		text-align: center;
 		img {

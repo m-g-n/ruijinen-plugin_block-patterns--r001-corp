@@ -22,6 +22,7 @@
 		}
 	}
 	> .smb-section__inner > .c-container{
+    width: 100%;
 		@include i.mq(sm,max,true){
 			padding-right: i.px_to_rem(20);
 			padding-left: i.px_to_rem(20);
@@ -68,6 +69,7 @@
 			}
 		}
 		img{
+      vertical-align: middle;
 			@include i.mq(md,max,true){
 				max-width: 420px;
 			}
@@ -83,6 +85,11 @@
 			content: none;
 		}
 	}
+  .smb-section-break-the-grid__lede-wrapper{
+    @include i.mq(md,max,true){
+      margin-top: i.px_to_rem(14);
+    }
+  }
 	.smb-section-break-the-grid__lede{
 		font-size: i.px_to_rem(12);
 		@include i.mq(lg){

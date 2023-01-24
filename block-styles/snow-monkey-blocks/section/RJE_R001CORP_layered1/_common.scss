@@ -18,6 +18,7 @@
 	> .smb-section__inner > .c-container{
 		padding-right: 0;
 		padding-left: 0;
+    width: 100% !important;
 		> .smb-section__contents-wrapper{
 			width: 100%;
 			> .smb-section__header{
@@ -44,9 +45,12 @@
 					padding-bottom: i.px_to_rem(24);
 					z-index: 1;
 					> .smb-section__inner > .c-container{
+            margin-right: 0;
+            margin-left: 0;
 						padding-right: i.px_to_rem(24);
 						padding-left: i.px_to_rem(24);
 						> .smb-section__contents-wrapper{
+              width: 100%;
 							> .smb-section__header{
 								.smb-section__title{
 									font-size: i.px_to_rem(28);
@@ -94,7 +98,7 @@
 //
 .is-style-RJE_R001CORP_layered1:not(:root) > .is-content-justification-left{
 	.smb-section{
-		margin-left: 0;
+		margin-left: 0 !important;
 	}
 }
 
@@ -103,6 +107,6 @@
 //
 .is-style-RJE_R001CORP_layered1:not(:root) > .is-content-justification-right{
 	.smb-section{
-		margin-right: 0;
+		margin-right: 0 !important;
 	}
 }
