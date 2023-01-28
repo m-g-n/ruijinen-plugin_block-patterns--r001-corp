@@ -25,17 +25,23 @@ $text_width: 41.2%;
 			padding-right: 0;
 			padding-left: 0;
 			max-width: unset;
+      width: 100%;
 		}
 		.smb-section-break-the-grid__contents-wrapper{
 			.c-row__col{
+        @include i.mq(md){
+          @include i.mq(lg, max, true) {
+            order: 0 !important;
+          }
+        }
 				//文章
 				&:first-child{
 					@include i.mq(md){
 						flex-basis: #{$text_width};
 						max-width: #{$text_width};
-						@include i.mq(lg, max, true) {
-							order: 2 !important;
-						}
+						// @include i.mq(lg, max, true) {
+						// 	order: 2 !important;
+						// }
 					}
 				}
 				//画像
@@ -43,9 +49,9 @@ $text_width: 41.2%;
 					@include i.mq(md){
 						flex-basis: calc( 100% - #{$text_width} );
 						max-width: calc( 100% - #{$text_width} );
-						@include i.mq(lg, max, true) {
-							order: 1 !important;
-						}
+						// @include i.mq(lg, max, true) {
+						// 	order: 1 !important;
+						// }
 					}
 				}
 			}
@@ -67,6 +73,7 @@ $text_width: 41.2%;
 				}
 			}
 			> img{
+        vertical-align: middle;
 				@include i.mq(md){
 					height: 100.5% !important; //たまに画像の四隅に1px余白がつくため強制的に大きめにしている
 					width: 100.5% !important;
@@ -115,6 +122,7 @@ $text_width: 41.2%;
 			}
 		}
 		.smb-section-break-the-grid__title{
+      margin-top: 0;
 			font-size: i.px_to_rem(24);
 			line-height: 1.8;
 			@include i.mq(lg){
@@ -138,6 +146,7 @@ $text_width: 41.2%;
 			.wp-block-button__link{
 				padding: 0.41em 1.12em;
 				font-size: i.px_to_rem(18);
+        line-height: 1.5;
 				transition: all 0.3s;
 				@include i.mq(lg){
 					min-width: 250px;

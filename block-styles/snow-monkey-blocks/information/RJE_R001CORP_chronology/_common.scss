@@ -77,6 +77,10 @@
 		}
 	}
 	.smb-media-text__title{
+    font-size: 1.2rem;
+    @include i.mq(lg){
+      font-size: 1.5rem;
+    }
 		+ .smb-media-text__body{
 			margin-top: 1.5em;
 			@include i.mq(lg){
