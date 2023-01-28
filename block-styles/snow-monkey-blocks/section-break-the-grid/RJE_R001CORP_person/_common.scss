@@ -22,7 +22,9 @@
 		}
 	}
 	> .smb-section__inner > .c-container{
-    width: 100%;
+    @include i.mq(sm, max, true){
+      width: 100%;
+    }
 		@include i.mq(sm,max,true){
 			padding-right: i.px_to_rem(20);
 			padding-left: i.px_to_rem(20);

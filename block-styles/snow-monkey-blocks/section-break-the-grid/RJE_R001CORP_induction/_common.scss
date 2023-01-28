@@ -29,14 +29,19 @@ $text_width: 41.2%;
 		}
 		.smb-section-break-the-grid__contents-wrapper{
 			.c-row__col{
+        @include i.mq(md){
+          @include i.mq(lg, max, true) {
+            order: 0 !important;
+          }
+        }
 				//文章
 				&:first-child{
 					@include i.mq(md){
 						flex-basis: #{$text_width};
 						max-width: #{$text_width};
-						@include i.mq(lg, max, true) {
-							order: 2 !important;
-						}
+						// @include i.mq(lg, max, true) {
+						// 	order: 2 !important;
+						// }
 					}
 				}
 				//画像
@@ -44,9 +49,9 @@ $text_width: 41.2%;
 					@include i.mq(md){
 						flex-basis: calc( 100% - #{$text_width} );
 						max-width: calc( 100% - #{$text_width} );
-						@include i.mq(lg, max, true) {
-							order: 1 !important;
-						}
+						// @include i.mq(lg, max, true) {
+						// 	order: 1 !important;
+						// }
 					}
 				}
 			}
