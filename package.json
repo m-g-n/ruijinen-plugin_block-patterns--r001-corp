@@ -5,14 +5,14 @@
   "license": "GPL-2.0+",
   "main": "index.js",
   "devDependencies": {
-    "@wordpress/env": "^5.9.0",
-    "@wordpress/scripts": "^25.1.0",
+    "@wordpress/env": "^5.10.0",
+    "@wordpress/scripts": "^25.2.0",
     "autoprefixer": "^10.4.13",
     "backstopjs": "^6.1.4",
     "cpy-cli": "^4.2.0",
     "cssnano": "^5.1.14",
     "del-cli": "^5.0.0",
-    "glob": "^8.0.3",
+    "glob": "^8.1.0",
     "imagemin-gifsicle": "^7.0.0",
     "imagemin-keep-folder": "^5.3.2",
     "imagemin-mozjpeg": "^10.0.0",
@@ -22,12 +22,12 @@
     "postcss": "^8.4.21",
     "postcss-cli": "^10.1.0",
     "postcss-sort-media-queries": "^4.3.0",
-    "rimraf": "^3.0.2",
+    "rimraf": "^4.1.2",
     "sass": "^1.57.1",
     "stylelint-order": "^6.0.1",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1",
-    "yarn-upgrade-all": "^0.7.1"
+    "yarn-upgrade-all": "^0.7.2"
   },
   "scripts": {
     "export:wp-content:themes": "yarn cli 'cp -r wp-content/themes .export/wp-content'",
