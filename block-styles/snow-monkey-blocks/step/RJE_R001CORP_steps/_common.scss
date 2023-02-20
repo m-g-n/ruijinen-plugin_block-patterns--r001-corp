@@ -15,6 +15,8 @@ $number_width: 112; //数字部分の領域幅
 // スタイル
 // ------------------------------------------------------
 .is-style-RJE_R001CORP_steps{
+  //変数
+  --smb-step--number-background-color: var(--accent-color, #000);
 	.smb-step__body{
 		line-height: 1.8;
 		&::before{
@@ -41,7 +43,7 @@ $number_width: 112; //数字部分の領域幅
 		}
 		@include i.mq(md,max,true){
 			display: block;
-			
+
 		}
 	}
 	.smb-step__item__number{
@@ -64,7 +66,7 @@ $number_width: 112; //数字部分の領域幅
 			display: block;
 			font-size: i.px_to_rem(18);
 			font-weight: 800;
-			color: var(--accent-color, #000);
+			color: var(--smb-step--number-background-color);
 			@include i.mq(md){
 				font-size: i.px_to_rem(24);
 			}

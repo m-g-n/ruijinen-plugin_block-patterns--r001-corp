@@ -87,7 +87,7 @@ $space_pc: i.px_to_rem(90);
 						flex-basis: $body_width;
 						max-width: $body_width;
 					}
-					
+
 				}
 				.c-row__col--md-3-3,
 				.c-row__col--md-3-4{
@@ -100,6 +100,14 @@ $space_pc: i.px_to_rem(90);
 			}
 		}
 	}
+  //ラベルの縦位置を中央揃えに設定してた場合の丸表示位置を調整
+  &[data-label-vertical-align="middle"]{
+    >.smb-information__body{
+      > .smb-information__item::before{
+        top: calc(50% - 5px);
+      }
+    }
+  }
 	//スマホ時ラベルと内容を横並びで表示しない
 	&:not([data-sm-split-column="true"]){
 		@include i.mq(sm, max, true){

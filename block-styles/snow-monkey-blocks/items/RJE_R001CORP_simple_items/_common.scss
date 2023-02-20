@@ -76,22 +76,26 @@
 		text-align: right;
 	}
 	.smb-items__item__btn {
+    //変数
+    --smb-btn--color: var(--accent-color);
+    --smb-btn--background-color: unset;
+    --smb-btn--style--ghost--color: unset;
+    //プロパティ
 		position: relative;
 		display: block;
 		padding: 0 1.9rem 0 0;
-		color: var( --accent-color, #cd162c );
 		text-align: right;
 		overflow: visible;
-		background-color: transparent;
 		&::before {
 			content: '';
 			position: absolute;
 			top: 50%;
 			right: 0;
+      display: block;
 			margin-top: -4px;
 			border-style: solid;
 			border-width: 4px 0 0 6px;
-			border-color: transparent transparent transparent var( --accent-color, #cd162c );
+			border-color: transparent transparent transparent var(--smb-btn--color);
 			transition: all .2s ease-out;
 		}
 		&::after {
@@ -99,10 +103,11 @@
 			position: absolute;
 			top: 50%;
 			right: 3px;
+      display: block;
 			width: 1rem;
 			height: 1px;
 			margin-top: -1px;
-			background-color: var( --accent-color, #cd162c );
+			background-color: var(--smb-btn--color);
 			transition: all .2s ease-out;
 		}
 		@include i.mq(lg) {
