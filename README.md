@@ -22,6 +22,10 @@ WordPressテーマ Snow Monkeyを拡張する「類人猿ブロックパター�
 https://ja.wordpress.org/team/handbook/block-editor/reference-guides/packages/packages-env/
 
 # 変更履歴
+## 3.1.1
+- 「シンプルな項目」「流れ」パターンにてブロックの設定で指定した色で表示されない不具合の対応
+- 編集画面で「シンプルな項目」パターンのボタンのhoverで動きが実行されないように調整
+- 「沿革」パターンの月表示のラベル縦位置を中央にした場合に丸のアクセントも中央になるように調整
 ## 3.1.0
 - Snow Monkey v19・Snow Monkey Blocks v18の対応
 ## 3.0.0

@@ -7,7 +7,7 @@
 // ------------------------------------------------------
 // 設定・読み込み・変数など
 // ------------------------------------------------------
-// @use "../../../../src/css/import" as i;
+@use "../../../../src/css/import" as i;
 
 // ------------------------------------------------------
 // スタイル
@@ -28,6 +28,41 @@
 			font-weight: bold;
 			color: #fff;
 			z-index: 2;
+		}
+	}
+  .smb-items__item__btn{
+    padding: 0 1.9rem 0 0 !important;
+    &::before,
+    &::after{
+      transition: unset !important;
+    }
+		@include i.mq(lg) {
+			&:active,
+			&:focus,
+			&:hover {
+				&::before {
+					right: 0  !important;
+				}
+				&::after {
+					right: 0 !important;
+				}
+			}
+		}
+  }
+	//ブロックリンク
+	a:active,
+	a:focus,
+	a:hover {
+		.smb-items__item__btn {
+			@include i.mq(lg) {
+				padding: 0 1.9rem 0 0 !important;
+				&::before {
+					right: 0 !important;
+				}
+				&::after {
+					right: 0 !important;
+				}
+			}
 		}
 	}
 }
