@@ -34,6 +34,7 @@
 			width: 15px;
 			height: 15px;
 			margin-right: i.px_to_rem(20);
+      margin-left: unset;
 			&::before,
 			&::after{
 				content: "";
