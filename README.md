@@ -22,6 +22,8 @@ WordPressテーマ Snow Monkeyを拡張する「類人猿ブロックパター�
 https://ja.wordpress.org/team/handbook/block-editor/reference-guides/packages/packages-env/
 
 # 変更履歴
+## 3.1.3
+- Snow Monkey Blocks v19の仕様変更に伴い「沿革」「1カラムの項目」パターンのスタイルを調整
 ## 3.1.2
 - Snow Monkey Blocks v18.2.0の仕様変更に伴い「アコーディオン」パターンのスタイルを調整
 ## 3.1.1
