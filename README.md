@@ -24,6 +24,7 @@ https://ja.wordpress.org/team/handbook/block-editor/reference-guides/packages/pa
 # 変更履歴
 ## 3.1.3
 - Snow Monkey Blocks v19の仕様変更に伴い「沿革」「1カラムの項目」パターンのスタイルを調整
+- 1カラムの項目ブロック専用の編集用CSSが読み込まれてない不具合の修正
 ## 3.1.2
 - Snow Monkey Blocks v18.2.0の仕様変更に伴い「アコーディオン」パターンのスタイルを調整
 ## 3.1.1
