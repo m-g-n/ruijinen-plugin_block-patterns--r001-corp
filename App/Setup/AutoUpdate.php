@@ -46,7 +46,7 @@ class AutoUpdate {
 				// ],
 				'tested'       => '6.2', // Tested up WordPress version
 				'requires_php' => '5.6.0', // Requires PHP version
-				'requires'     => '6.2', // Requires WordPress version
+				'requires'     => '7.4', // Requires WordPress version
 			]
 		);
 	}
