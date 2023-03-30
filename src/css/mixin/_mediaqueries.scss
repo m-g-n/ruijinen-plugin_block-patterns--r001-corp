@@ -5,11 +5,11 @@
 //   /* @media screen and (min-width: 1024px) */
 //   @include i.mq(lg) {
 //   }
-// 
+//
 //   /* @media screen and (max-width: 639px)  ※第3引数にtrueをつけると-1した数でmax値をだす */
 //   @include i.mq(sm, max, true) {
 //   }
-// 
+//
 //   /* @media screen and (min-width: 768px) and (max-width: 1023px) */
 //   @include mq {
 //     @include i.mq(lg, max, true) {
@@ -25,7 +25,7 @@
 @mixin mq($breakpoint: md, $rule: min, $subtraction: false) {
   $breakpoint: map.get(v.$mq-breakpoints, $breakpoint);
   @if $rule == max and $subtraction {
-    $breakpoint: $breakpoint - 1;
+    $breakpoint: $breakpoint - 0.1;
   }
   @media screen and (#{$rule}-width: $breakpoint) {
     @content;
