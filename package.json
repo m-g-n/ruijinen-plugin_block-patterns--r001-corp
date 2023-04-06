@@ -5,14 +5,14 @@
   "license": "GPL-2.0+",
   "main": "index.js",
   "devDependencies": {
-    "@wordpress/env": "^5.12.0",
-    "@wordpress/scripts": "^25.4.0",
-    "autoprefixer": "^10.4.13",
-    "backstopjs": "^6.1.4",
+    "@wordpress/env": "^5.15.0",
+    "@wordpress/scripts": "^26.1.0",
+    "autoprefixer": "^10.4.14",
+    "backstopjs": "^6.2.0",
     "cpy-cli": "^4.2.0",
-    "cssnano": "^5.1.15",
+    "cssnano": "^6.0.0",
     "del-cli": "^5.0.0",
-    "glob": "^9.0.1",
+    "glob": "^9.3.4",
     "imagemin-gifsicle": "^7.0.0",
     "imagemin-keep-folder": "^5.3.2",
     "imagemin-mozjpeg": "^10.0.0",
@@ -22,10 +22,10 @@
     "postcss": "^8.4.21",
     "postcss-cli": "^10.1.0",
     "postcss-sort-media-queries": "^4.3.0",
-    "rimraf": "^4.1.2",
-    "sass": "^1.58.3",
-    "stylelint-order": "^6.0.2",
-    "webpack": "^5.76.0",
+    "rimraf": "^4.4.1",
+    "sass": "^1.60.0",
+    "stylelint-order": "^6.0.3",
+    "webpack": "^5.78.0",
     "webpack-cli": "^5.0.1",
     "yarn-upgrade-all": "^0.7.2"
   },
@@ -66,7 +66,7 @@
     "Android >= 4.4"
   ],
   "dependencies": {
-    "postcss-sorting": "^8.0.1"
+    "postcss-sorting": "^8.0.2"
   },
   "volta": {
     "node": "14.21.1",
