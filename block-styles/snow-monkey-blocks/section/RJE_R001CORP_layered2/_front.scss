@@ -26,14 +26,17 @@ body:not([data-has-sidebar="true"]){
 					//
 					> .smb-section{
 						@include i.mq(lg){
-							width: 92%;
-							padding-top: i.px_to_rem(80);
-							padding-bottom: i.px_to_rem(80);
+              --rje-r001-section-padding: #{i.px_to_rem(80)};
+              --rje-r001-section-width: 92%;
+							// width: var(--rje-r001-section-width);
+							// padding-top: var(--rje-r001-section-padding);
+							// padding-bottom: var(--rje-r001-section-padding);
 						}
 						> .smb-section__inner > .c-container{
 							@include i.mq(lg){
-								padding-right: i.px_to_rem(86);
-								padding-left: i.px_to_rem(86);
+                --rje-r001-section-padding: #{i.px_to_rem(86)};
+								// padding-right: i.px_to_rem(86);
+								// padding-left: i.px_to_rem(86);
 							}
 							> .smb-section__contents-wrapper{
 								> .c-row{
@@ -75,7 +78,8 @@ body:not([data-has-sidebar="true"]){
 										> .smb-section__header{
 											.smb-section__title{
 												@include i.mq(lg){
-													font-size: i.px_to_rem(40);
+                          --_font-size-level: 4.8;
+													// font-size: i.px_to_rem(40);
 													line-height: 1.6;
 												}
 											}
@@ -103,11 +107,12 @@ body[data-has-sidebar="true"]{
 					// セクション
 					//
 					> .smb-section{
-						padding-top: i.px_to_rem(24);
-						padding-bottom: i.px_to_rem(24);
+            --rje-r001-section-padding: #{i.px_to_rem(24)};
+						// padding-top: var(--rje-r001-section-padding);;
+						// padding-bottom: var(--rje-r001-section-padding);;
 						> .smb-section__inner > .c-container{
-							padding-left: i.px_to_rem(24);
-							padding-right: i.px_to_rem(24);
+							// padding-left: i.px_to_rem(24);
+							// padding-right: i.px_to_rem(24);
 							> .smb-section__contents-wrapper{
 								> .c-row{
 									@include i.mq(sm){
