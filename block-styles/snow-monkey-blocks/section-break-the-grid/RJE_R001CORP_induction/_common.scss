@@ -61,7 +61,9 @@ $text_width: 41.2%;
 			overflow: hidden;
 			@include i.mq(md, max, true) {
 				position: static;
-				margin-bottom: 0 !important;
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+				// margin-bottom: 0 !important;
 			}
 			@include i.mq(md){
 				// left: #{$text_width} !important;

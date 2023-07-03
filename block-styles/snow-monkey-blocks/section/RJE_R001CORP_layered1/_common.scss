@@ -13,12 +13,15 @@
 // スタイル
 // ------------------------------------------------------
 .is-style-RJE_R001CORP_layered1:not(:root){
-	padding-top: 0;
-	padding-bottom: 0;
+  --smb-section--padding: 0;
+	// padding-top: 0;
+	// padding-bottom: 0;
 	> .smb-section__inner > .c-container{
-		padding-right: 0;
-		padding-left: 0;
-    width: 100% !important;
+    --_container-margin-right: 0;
+    --_container-margin-left: 0;
+		// padding-right: 0;
+		// padding-left: 0;
+		// width: 100% !important;
 		> .smb-section__contents-wrapper{
 			width: 100%;
 			> .smb-section__header{
@@ -38,22 +41,25 @@
 				// セクション
 				//
 				> .smb-section{
-					width: 97%;
+          --rje-r001-section-width: 97%;
+          --smb-section--padding: #{i.px_to_rem(24)};
+					width: var(--rje-r001-section-width);
 					max-width: 1380px;
 					margin-top: -100px;
-					padding-top: i.px_to_rem(24);
-					padding-bottom: i.px_to_rem(24);
+					// padding-top: i.px_to_rem(24);
+					// padding-bottom: i.px_to_rem(24);
 					z-index: 1;
 					> .smb-section__inner > .c-container{
-            margin-right: 0;
-            margin-left: 0;
-						padding-right: i.px_to_rem(24);
-						padding-left: i.px_to_rem(24);
+            // margin-right: 0;
+            // margin-left: 0;
+						padding-right: var(--smb-section--padding);
+						padding-left: var(--smb-section--padding);
 						> .smb-section__contents-wrapper{
-              width: 100%;
+              // width: 100%;
 							> .smb-section__header{
 								.smb-section__title{
-									font-size: i.px_to_rem(28);
+                  --_font-size-level: 3.43; //約28px
+									// font-size: i.px_to_rem(28);
 									&::after{
 										width: 120px;
 										margin-top: calc(1rem + ((1vw - 0.2rem) * 3.4091));
@@ -67,7 +73,8 @@
 									margin-left: auto;
 								}
 								.smb-section__lede{
-									font-size: 1rem;
+                  --_font-size-level: 0;
+									// font-size: 1rem;
 								}
 							}
 							> .smb-section__body{
