@@ -19,7 +19,7 @@ $body_width: calc(100% - (4rem + 0.5rem + 64px));
 	>.smb-information__body{
 		> .smb-information__item{
 			&:not(:first-child){
-				margin-top: i.px_to_rem(18);
+				margin-top: #{i.px_to_rem(18)};
 				@include i.mq(sm){
 					margin-top: 0;
 				}
@@ -35,7 +35,7 @@ $body_width: calc(100% - (4rem + 0.5rem + 64px));
 							content: "";
 							top: calc( 50% - 1px );
 							display: inline-block;
-							width: i.px_to_rem(64);
+							width: #{i.px_to_rem(64)};
 							height: 1px;
 							margin-left: 0.5em;
 							background-color: #CFCFCF;

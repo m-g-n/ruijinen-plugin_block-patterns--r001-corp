@@ -95,7 +95,7 @@ $text_width: 41.2%;
 			}
 		}
 		.smb-section-break-the-grid__content{
-			padding: i.px_to_rem(24) i.px_to_rem(20);
+			padding: #{i.px_to_rem(24) i.px_to_rem(20)};
 			@include i.mq(md){
 				padding-top: 3rem;
 				padding-bottom: 3rem;
@@ -109,14 +109,14 @@ $text_width: 41.2%;
 			display: flex;
 			flex-direction: column-reverse;
 			+ .smb-section-break-the-grid__body{
-				margin-top: i.px_to_rem(32);
+				margin-top: #{i.px_to_rem(32)};
 				@include i.mq(lg){
-					margin-top: i.px_to_rem(40);
+					margin-top: #{i.px_to_rem(40)};
 				}
 			}
 		}
 		.smb-section-break-the-grid__subtitle{
-			font-size: i.px_to_rem(12);
+			font-size: #{i.px_to_rem(12)};
 			font-weight: normal;
 			color: unset;
 			@include i.mq(lg){
@@ -125,10 +125,10 @@ $text_width: 41.2%;
 		}
 		.smb-section-break-the-grid__title{
       margin-top: 0;
-			font-size: i.px_to_rem(24);
+			font-size: #{i.px_to_rem(24)};
 			line-height: 1.8;
 			@include i.mq(lg){
-				font-size: i.px_to_rem(32);
+				font-size: #{i.px_to_rem(32)};
 			}
 			&::after{
 				content: unset;
@@ -139,15 +139,15 @@ $text_width: 41.2%;
 				line-height: 1.8;
 			}
 			.smb-buttons{
-				margin-top: i.px_to_rem(32);
+				margin-top: #{i.px_to_rem(32)};
 				@include i.mq(lg){
-					margin-top: i.px_to_rem(64);
+					margin-top: #{i.px_to_rem(64)};
 				}
 			}
 			.smb-btn,
 			.wp-block-button__link{
 				padding: 0.41em 1.12em;
-				font-size: i.px_to_rem(18);
+				font-size: #{i.px_to_rem(18)};
         line-height: 1.5;
 				transition: all 0.3s;
 				@include i.mq(lg){
