@@ -20,35 +20,36 @@ $space_pc: i.px_to_rem(90);
 // ------------------------------------------------------
 .is-style-RJE_R001CORP_history_month{
 	>.smb-information__body{
+    --rje001-body-position-left: calc( #{$label_width} + ( #{$space_sp} / 2 ) - 10px );
 		position: relative;
 		&::before{
 			content: "";
 			position: absolute;
 			top: 0.55rem;
-			left: calc( #{$label_width} + ( #{$space_sp} / 2 ) - 10px );
+			left: var(--rje001-body-position-left);
 			display: block;
 			width: 1px;
-			// height: calc(100% - 0.55rem);
 			height: 100%;
 			background-color: #CFCFCF;
 			@include i.mq(sm){
-				left: calc( #{$label_width} + ( #{$space_pc} / 2 ) );
+				--rje001-body-position-left: calc( #{$label_width} + ( #{$space_pc} / 2 ) );
 			}
 		}
 		> .smb-information__item{
 			position: relative;
 			&::before{
+        --rje001-item-position-left: calc( #{$label_width} + ( #{$space_sp} / 2 ) - 15px );
 				content: "";
 				position: absolute;
 				top: 0.55em;
-				left: calc( #{$label_width} + ( #{$space_sp} / 2 ) - 15px );
+				left: var(--rje001-item-position-left);
 				display: block;
 				width: 10px;
 				height: 10px;
 				background-color: var(--accent-color,#cd162c);
 				border-radius: 50%;
 				@include i.mq(sm){
-					left: calc( #{$label_width} + ( #{$space_pc} / 2 ) - 5px );
+					--rje001-item-position-left: calc( #{$label_width} + ( #{$space_pc} / 2 ) - 5px );
 				}
 			}
 			&:not(:first-child){

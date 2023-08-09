@@ -20,18 +20,18 @@
 		}
 	}
 	.p-child-pages__title{
+    --rje001-title-width: 160px;
 		justify-content: flex-start;
 		margin-bottom: i.px_to_rem(10);
 		font-size: i.px_to_rem(18);
 		@include i.mq(md){
 			margin-bottom: 0;
 			padding-right: i.px_to_rem(40);
-			flex: 1 0 160px;
-			max-width: 160px;
+			flex: 1 0 var(--rje001-title-width);
+			max-width: var(--rje001-title-width);
 		}
 		@include i.mq(lg){
-			flex-basis: 200px;
-			max-width: 200px;
+      --rje001-title-width: 200px;
 			font-size: i.px_to_rem(24);
 		}
 		&::before,
@@ -66,18 +66,19 @@
 			}
 		}
 		.c-entries__item{
+      --rje001-item-padding: i.px_to_rem(12);
+      --rje001-item-width: 50%;
 			border: unset;
-			padding-top: i.px_to_rem(12);
-			padding-bottom: i.px_to_rem(12);
+			padding-top: var(--rje001-item-padding);
+			padding-bottom: var(--rje001-item-padding);
 			@include i.mq(md){
-				flex: 1 0 50%;
-				max-width: 50%;
-				padding-right: i.px_to_rem(12);
-				padding-left: i.px_to_rem(12);
+				flex: 1 0 var(--rje001-item-width);
+				max-width: var(---rje001-item-width);
+				padding-right: var(--rje001-item-padding);
+				padding-left: var(--rje001-item-padding);
 			}
 			@include i.mq(lg){
-				flex-basis: 33.3%;
-				max-width: 33.3%;
+        --rje001-item-width: 33.3%;
 			}
 			> a{
 				padding: 0;

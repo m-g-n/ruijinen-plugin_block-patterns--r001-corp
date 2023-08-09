@@ -14,42 +14,43 @@
 // ------------------------------------------------------
 .is-style-RJE_R001CORP_chronology{
 	.smb-information__item{
+    --rje001-item-pt: i.px_to_rem(24);
+    --rje001-item-pb: i.px_to_rem(40);
 		margin-top: 0;
-		padding-bottom: i.px_to_rem(40);
+		padding-bottom: var(--rje001-item-pb);
 		border-bottom: 1px solid#CFCFCF;
 		@include i.mq(lg){
-			padding-bottom: i.px_to_rem(64);
+      --rje001-item-pt: i.px_to_rem(40);
+      --rje001-item-pb: i.px_to_rem(64);
 		}
 		&:not(:first-child){
-			padding-top: i.px_to_rem(24);
-			@include i.mq(lg){
-				padding-top: i.px_to_rem(40);
-			}
+			padding-top: var(--rje001-item-pt);
 		}
 		> .c-row{
 			> .c-row__col{
+        max-width: unset;
 				&:first-child{
+          --rje001-item-pr: i.px_to_rem(24);
 					flex: 0;
-					max-width: unset;
-					padding-right: i.px_to_rem(24);
+					padding-right: var(--rje001-item-pr);
 					@include i.mq(lg){
-						padding-right: i.px_to_rem(40);
+            --rje001-item-pr: i.px_to_rem(40);
 					}
 				}
 				&:last-child{
 					flex: 1;
-					max-width: unset;
 				}
 			}
 		}
 	}
 	.smb-information__item__label{
-		font-size: i.px_to_rem(18);
+    --rje001-label-size: i.px_to_rem(18);
+		font-size: var(--rje001-label-size);
 		font-weight: bold;
 		line-height: 1.8;
 		color: var(--accent-color,#cd162c);
 		@include i.mq(lg){
-			font-size: i.px_to_rem(24);
+      --rje001-label-size: i.px_to_rem(24);
 		}
 	}
 	.smb-information__item__body{
