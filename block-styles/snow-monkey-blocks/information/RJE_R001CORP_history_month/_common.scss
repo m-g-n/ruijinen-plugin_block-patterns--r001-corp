@@ -10,10 +10,10 @@
 @use "../../../../src/css/import" as i;
 
 //ローカル変数
-$label_width: i.px_to_rem(67);
+$label_width: #{i.px_to_rem(67)};
 $body_width: calc( 100% - $label_width);
-$space_sp: i.px_to_rem(42);
-$space_pc: i.px_to_rem(90);
+$space_sp: #{i.px_to_rem(42)};
+$space_pc: #{i.px_to_rem(90)};
 
 // ------------------------------------------------------
 // スタイル
@@ -53,9 +53,9 @@ $space_pc: i.px_to_rem(90);
 				}
 			}
 			&:not(:first-child){
-				margin-top: i.px_to_rem(16);
+				margin-top: #{i.px_to_rem(16)};
 				@include i.mq(sm){
-					margin-top: i.px_to_rem(24);
+					margin-top: #{i.px_to_rem(24)};
 				}
 			}
 			> .c-row{
@@ -143,16 +143,16 @@ $space_pc: i.px_to_rem(90);
 	>.smb-information__body{
 		> .smb-information__item:not(:first-child){
 			> .c-row > .c-row__col > .smb-information__item__label{
-				padding-top: i.px_to_rem(16);
+				padding-top: #{i.px_to_rem(16)};
 				@include i.mq(sm){
-					padding-top: i.px_to_rem(24);
+					padding-top: #{i.px_to_rem(24)};
 				}
 			}
 			.is-style-RJE_R001CORP_history_month{
 				>.smb-information__body{
-					padding-top: i.px_to_rem(16);
+					padding-top: #{i.px_to_rem(16)};
 					@include i.mq(sm){
-						padding-top: i.px_to_rem(24);
+						padding-top: #{i.px_to_rem(24)};
 					}
 				}
 			}

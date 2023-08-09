@@ -42,12 +42,12 @@
 				//
 				> .smb-section{
           --rje001-section-width: 97%;
-          --smb-section--padding: #{i.px_to_rem(24)};
+          --smb-section--padding: #{#{i.px_to_rem(24)}};
 					width: var(--rje001-section-width);
 					max-width: 1380px;
 					margin-top: -100px;
-					// padding-top: i.px_to_rem(24);
-					// padding-bottom: i.px_to_rem(24);
+					// padding-top: #{i.px_to_rem(24)};
+					// padding-bottom: #{i.px_to_rem(24)};
 					z-index: 1;
 					> .smb-section__inner > .c-container{
             // margin-right: 0;
@@ -59,7 +59,7 @@
 							> .smb-section__header{
 								.smb-section__title{
                   --_font-size-level: 3.43; //約28px
-									// font-size: i.px_to_rem(28);
+									// font-size: #{i.px_to_rem(28)};
 									&::after{
 										width: 120px;
 										margin-top: calc(1rem + ((1vw - 0.2rem) * 3.4091));

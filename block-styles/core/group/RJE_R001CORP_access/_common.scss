@@ -22,16 +22,16 @@
 		}
 	}
 	.smb-buttons{
-    --rje001-btn-mt: i.px_to_rem(10);
+    --rje001-btn-mt: #{i.px_to_rem(10)};
 		margin-top: var(--rje001-btn-mt);
-		font-size: i.px_to_rem(12);
+		font-size: #{i.px_to_rem(12)};
 		@include i.mq(sm){
-      --rje001-btn-mt: i.px_to_rem(16);
+      --rje001-btn-mt: #{i.px_to_rem(16)};
 		}
 	}
 	.smb-btn{
-		min-width: i.px_to_rem(128);
-		padding: i.px_to_rem(8) i.px_to_rem(10);
+		min-width: #{i.px_to_rem(128)};
+		padding: #{i.px_to_rem(8) i.px_to_rem(10)};
     line-height: 1.5;
 	}
 }
@@ -39,6 +39,6 @@
   --rje001-map-mt: 1rem;
 	margin-top: var(--rje001-map-mt);
 	@include i.mq(sm){
-    --rje001-map-mt: i.px_to_rem(24);
+    --rje001-map-mt: #{i.px_to_rem(24)};
 	}
 }

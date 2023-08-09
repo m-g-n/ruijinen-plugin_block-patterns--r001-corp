@@ -69,24 +69,24 @@
 		// }
 	}
 	.smb-items__banner__body {
-		padding: i.px_to_rem(20);
+		padding: #{i.px_to_rem(20)};
 		@include i.mq(sm){
 			padding: 8%;
 		}
 	}
 	.smb-items__banner__title {
-		font-size: i.px_to_rem(18);
+		font-size: #{i.px_to_rem(18)};
 		font-weight: bold;
 		line-height: 1.8;
 		@include i.mq(sm){
-			font-size: i.px_to_rem(24);
+			font-size: #{i.px_to_rem(24)};
 		}
 	}
 	.smb-items__banner__lede {
-		margin-top: i.px_to_rem(20);
+		margin-top: #{i.px_to_rem(20)};
 		line-height: 1.8;
 		@include i.mq(sm){
-			margin-top: i.px_to_rem(40);
+			margin-top: #{i.px_to_rem(40)};
       --_font-size-level: 0;
 			// font-size: 1rem;
 		}

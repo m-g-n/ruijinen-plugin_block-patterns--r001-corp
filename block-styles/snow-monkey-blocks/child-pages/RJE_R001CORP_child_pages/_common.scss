@@ -22,17 +22,17 @@
 	.p-child-pages__title{
     --rje001-title-width: 160px;
 		justify-content: flex-start;
-		margin-bottom: i.px_to_rem(10);
-		font-size: i.px_to_rem(18);
+		margin-bottom: #{i.px_to_rem(10)};
+		font-size: #{i.px_to_rem(18)};
 		@include i.mq(md){
 			margin-bottom: 0;
-			padding-right: i.px_to_rem(40);
+			padding-right: #{i.px_to_rem(40)};
 			flex: 1 0 var(--rje001-title-width);
 			max-width: var(--rje001-title-width);
 		}
 		@include i.mq(lg){
       --rje001-title-width: 200px;
-			font-size: i.px_to_rem(24);
+			font-size: #{i.px_to_rem(24)};
 		}
 		&::before,
 		&::after{
@@ -47,17 +47,17 @@
 			display: flex;
 			flex-wrap: wrap;
 			margin: -12px;
-			padding-left: i.px_to_rem(28);
+			padding-left: #{i.px_to_rem(28)};
 		}
 		@include i.mq(md,max,true){
-			padding-top: i.px_to_rem(8);
+			padding-top: #{i.px_to_rem(8)};
 			border-top: 1px solid #CFCFCF;
 		}
 		&::before{
 			@include i.mq(md){
 				content: "";
 				position: absolute;
-				top: i.px_to_rem(12);
+				top: #{i.px_to_rem(12)};
 				left: 0;
 				display: block;
 				width: 1px;
@@ -66,7 +66,7 @@
 			}
 		}
 		.c-entries__item{
-      --rje001-item-padding: i.px_to_rem(12);
+      --rje001-item-padding: #{i.px_to_rem(12)};
       --rje001-item-width: 50%;
 			border: unset;
 			padding-top: var(--rje001-item-padding);

@@ -22,6 +22,8 @@ WordPressテーマ Snow Monkeyを拡張する「類人猿ブロックパター�
 https://ja.wordpress.org/team/handbook/block-editor/reference-guides/packages/packages-env/
 
 # 変更履歴
+## 3.2.3
+- SASS変数がうまくコンパイルされないためエスケープ処理
 ## 3.2.2
 - 一部CSS記述の調整
 - yarnからnpmへ変更
