@@ -27,7 +27,7 @@ body:not([data-has-sidebar="true"]){
 					> .smb-section{
 						@include i.mq(md){
 							--smb-section--padding: #{i.px_to_rem(48)};
-              --rje-r001-section-width: 94%;
+              --rje001-section-width: 94%;
 							// width: 94%;
 							// padding-top: i.px_to_rem(48);
 							// padding-bottom: i.px_to_rem(48);
