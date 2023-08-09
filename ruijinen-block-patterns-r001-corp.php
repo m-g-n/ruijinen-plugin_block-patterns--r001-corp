@@ -26,7 +26,6 @@ define( 'RJE_R001CORP_URL', untrailingslashit( plugins_url( '', __FILE__ ) ) . '
 define( 'RJE_R001CORP_PATH', untrailingslashit( plugin_dir_path( __FILE__ ) ) . '/' ); // このプラグインのパス
 define( 'RJE_R001CORP_BASENAME', plugin_basename( __FILE__ ) ); // このプラグインのベースネーム.
 define( 'RJE_R001CORP_TEXTDOMAIN', 'ruijinen-r001-corp' ); //テキストドメイン名.
-
 define( 'RJE_R001CORP_DIRNAME', basename(__DIR__) ); //テキストドメイン名.
 
 
