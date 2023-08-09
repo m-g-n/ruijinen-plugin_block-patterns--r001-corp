@@ -14,17 +14,19 @@
 // ------------------------------------------------------
 .is-style-RJE_R001CORP_access{
 	iframe{
+    --rje001-height: 240px;
 		width: 100%;
-		height: 240px;
+		height: var(--rje001-height);
 		@include i.mq(sm){
-			height: 400px;
+			--rje001-height: 400px;
 		}
 	}
 	.smb-buttons{
-		margin-top: i.px_to_rem(10);
+    --rje001-btn-mt: i.px_to_rem(10);
+		margin-top: var(--rje001-btn-mt);
 		font-size: i.px_to_rem(12);
 		@include i.mq(sm){
-			margin-top: i.px_to_rem(16);
+      --rje001-btn-mt: i.px_to_rem(16);
 		}
 	}
 	.smb-btn{
@@ -34,8 +36,9 @@
 	}
 }
 .RJE_R001CORP_access__map_container:not(:root){
-	margin-top: 1rem;
+  --rje001-map-mt: 1rem;
+	margin-top: var(--rje001-map-mt);
 	@include i.mq(sm){
-		margin-top: i.px_to_rem(24);
+    --rje001-map-mt: i.px_to_rem(24);
 	}
 }

@@ -14,12 +14,12 @@
 // ------------------------------------------------------
 .is-style-RJE_R001CORP_simple_items {
 	>.c-row {
-		--rje-r001-gap-bottom: calc(#{i.px_to_rem(20)} * -1);
-		margin-bottom: var(--rje-r001-gap-bottom);
+		--rje001-gap-bottom: calc(#{i.px_to_rem(20)} * -1);
+		margin-bottom: var(--rje001-gap-bottom);
 
 		@include i.mq(md) {
 			--_gap: 7%;
-			--rje-r001-gap-bottom: calc(#{i.px_to_rem(40)} * -1);
+			--rje001-gap-bottom: calc(#{i.px_to_rem(40)} * -1);
 			// margin-right: -3.5%;
 			// margin-bottom: i.px_to_rem(40) * -1;
 			// margin-left: -3.5%;
@@ -27,7 +27,7 @@
 
 		>.c-row__col {
 			margin-bottom: 0;
-			padding-bottom: var(--rje-r001-gap-bottom);
+			padding-bottom: var(--rje001-gap-bottom);
 			// padding-bottom: i.px_to_rem(20);
 			// @include i.mq(md){
 			// padding-right: 3.5%;

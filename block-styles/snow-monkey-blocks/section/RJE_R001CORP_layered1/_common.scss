@@ -41,9 +41,9 @@
 				// セクション
 				//
 				> .smb-section{
-          --rje-r001-section-width: 97%;
+          --rje001-section-width: 97%;
           --smb-section--padding: #{i.px_to_rem(24)};
-					width: var(--rje-r001-section-width);
+					width: var(--rje001-section-width);
 					max-width: 1380px;
 					margin-top: -100px;
 					// padding-top: i.px_to_rem(24);
