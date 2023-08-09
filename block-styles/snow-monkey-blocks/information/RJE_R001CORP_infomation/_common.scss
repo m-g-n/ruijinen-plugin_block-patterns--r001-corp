@@ -20,22 +20,22 @@ $label_width: 240px;
 		> .c-row{
 			> .c-row__col{
 				&:first-child{
-					padding-top: i.px_to_rem(24);
+					padding-top: #{i.px_to_rem(24)};
 					@include i.mq(sm){
-						padding-bottom: i.px_to_rem(24);
+						padding-bottom: #{i.px_to_rem(24)};
 						border-bottom: 1px solid#595757;
 					}
 					@include i.mq(lg){
 						max-width: #{$label_width};
 						flex-basis: #{$label_width};
-						margin-right: i.px_to_rem(40);
+						margin-right: #{i.px_to_rem(40)};
 					}
 				}
 				&:last-child{
-					padding-bottom: i.px_to_rem(24);
+					padding-bottom: #{i.px_to_rem(24)};
 					border-bottom: 1px solid#CFCFCF;
 					@include i.mq(sm){
-						padding-top: i.px_to_rem(24);
+						padding-top: #{i.px_to_rem(24)};
 					}
 					@include i.mq(lg){
 						max-width: calc( 100% - ( #{$label_width} + 40px ) );
@@ -95,11 +95,11 @@ $label_width: 240px;
 			> .c-row{
 				> .c-row__col{
 					&:first-child{
-						padding-bottom: i.px_to_rem(24);
+						padding-bottom: #{i.px_to_rem(24)};
 						border-bottom: 1px solid#595757;
 					}
 					&:last-child{
-						padding-top: i.px_to_rem(24);
+						padding-top: #{i.px_to_rem(24)};
 					}
 				}
 			}

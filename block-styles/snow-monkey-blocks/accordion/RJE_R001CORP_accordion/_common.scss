@@ -14,14 +14,14 @@
 // ------------------------------------------------------
 .is-style-RJE_R001CORP_accordion{
 	> .smb-accordion__item{
-		padding: i.px_to_rem(24) i.px_to_rem(20);
+		padding: #{i.px_to_rem(24) i.px_to_rem(20)};
 		border: 1px solid #CFCFCF;
 		@include i.mq(md){
-			padding-right: i.px_to_rem(40);
-			padding-left: i.px_to_rem(40);
+			padding-right: #{i.px_to_rem(40)};
+			padding-left: #{i.px_to_rem(40)};
 		}
 		&:not(:first-child){
-			margin-top: i.px_to_rem(24);
+			margin-top: #{i.px_to_rem(24)};
 		}
 		.smb-accordion__item__title{
 			flex-direction: row-reverse;
@@ -33,7 +33,7 @@
 			position: relative;
 			width: 15px;
 			height: 15px;
-			margin-right: i.px_to_rem(20);
+			margin-right: #{i.px_to_rem(20)};
       margin-left: unset;
 			&::before,
 			&::after{
@@ -59,11 +59,11 @@
 			}
 		}
 		.smb-accordion__item__body{
-			margin-top: i.px_to_rem(24);
-			padding: i.px_to_rem(16) 0 0;
+			margin-top: #{i.px_to_rem(24)};
+			padding: #{i.px_to_rem(16)} 0 0;
 			border-top: 1px solid #CFCFCF;
 			@include i.mq(md){
-				padding-top: i.px_to_rem(24);
+				padding-top: #{i.px_to_rem(24)};
 			}
 		}
 		//開閉コントロールチェックボックス

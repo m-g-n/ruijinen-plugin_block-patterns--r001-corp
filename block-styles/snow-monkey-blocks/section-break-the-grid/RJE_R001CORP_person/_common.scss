@@ -17,14 +17,14 @@
 	// padding-top: 0;
 	// padding-bottom: 0;
 	> .smb-section__fixed-background{
-    --rje001-section-bg-margin: #{i.px_to_rem(40)};
+    --rje001-section-bg-margin: #{#{i.px_to_rem(40)}};
 		margin-top: var(--rje001-section-bg-margin);
 		@include i.mq(sm){
 			margin-bottom: var(--rje001-section-bg-margin);
 		}
 	}
 	> .smb-section__inner > .c-container{
-    --rje001-section-container-padding: #{i.px_to_rem(20)};
+    --rje001-section-container-padding: #{#{i.px_to_rem(20)}};
     // @include i.mq(sm, max, true){
     //   width: 100%;
     // }
@@ -61,8 +61,8 @@
 		}
 	}
 	.smb-section-break-the-grid__content{
-		padding-top: i.px_to_rem(24);
-		padding-bottom: i.px_to_rem(24);
+		padding-top: #{i.px_to_rem(24)};
+		padding-bottom: #{i.px_to_rem(24)};
 	}
 	.smb-section-break-the-grid__figure{
 		@include i.mq(lg,max,true){
@@ -82,13 +82,13 @@
 		}
 	}
 	.smb-section-break-the-grid__title{
-		// font-size: i.px_to_rem(24);
+		// font-size: #{i.px_to_rem(24)};
 		line-height: 1.8;
     @include i.mq(lg,max,true){
       --_font-size-level: 2.848;
     }
 		// @include i.mq(lg){
-		// 	font-size: i.px_to_rem(32);
+		// 	font-size: #{i.px_to_rem(32)};
 		// }
 		&::after{
 			content: none;
@@ -96,14 +96,14 @@
 	}
 	.smb-section-break-the-grid__lede-wrapper{
 		@include i.mq(md,max,true){
-			margin-top: i.px_to_rem(14);
+			margin-top: #{i.px_to_rem(14)};
 		}
 	}
 	.smb-section-break-the-grid__lede{
-		// font-size: i.px_to_rem(12);
+		// font-size: #{i.px_to_rem(12)};
     --_font-size-level: -2.665;
 		@include i.mq(lg){
-			margin-top: i.px_to_rem(40);
+			margin-top: #{i.px_to_rem(40)};
 			// font-size: 1rem;
       --_font-size-level: 1;
 		}
@@ -111,11 +111,11 @@
 	.smb-section-break-the-grid__body{
 		margin-top: 0.5rem;
 		.has-sm-medium-font-size{
-      // font-size:  i.px_to_rem(18);
-      --wp--preset--font-size--sm-medium: #{i.px_to_rem(18)};
+      // font-size:  #{i.px_to_rem(18)};
+      --wp--preset--font-size--sm-medium: #{#{i.px_to_rem(18)}};
 			@include i.mq(md){
-        --wp--preset--font-size--sm-medium: #{i.px_to_rem(24)};
-				// font-size: i.px_to_rem(24);
+        --wp--preset--font-size--sm-medium: #{#{i.px_to_rem(24)}};
+				// font-size: #{i.px_to_rem(24)};
 			}
 		}
 	}
