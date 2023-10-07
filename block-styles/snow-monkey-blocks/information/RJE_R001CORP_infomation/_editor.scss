@@ -12,7 +12,14 @@
 // ------------------------------------------------------
 // スタイル
 // ------------------------------------------------------
-.is-style-RJE_R001CORP_infomation{
-	padding: 1rem 0.5rem 0.5rem;
-	border: 1px dotted #cd162c;
+@mixin styles () {
+  .is-style-RJE_R001CORP_infomation{
+    padding: 1rem 0.5rem 0.5rem;
+    border: 1px dotted #cd162c;
+  }
+}
+
+@include styles;
+.editor-styles-wrapper{
+  @include styles;
 }

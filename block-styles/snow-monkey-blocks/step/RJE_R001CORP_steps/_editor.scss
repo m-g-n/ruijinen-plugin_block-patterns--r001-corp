@@ -12,10 +12,17 @@
 // ------------------------------------------------------
 // スタイル
 // ------------------------------------------------------
-.is-style-RJE_R001CORP_steps{
-	.smb-step__item__number{
-		&::after{
-			content: none;
-		}
-	}
+@mixin styles () {
+  .is-style-RJE_R001CORP_steps{
+    .smb-step__item__number{
+      &::after{
+        content: none;
+      }
+    }
+  }
+}
+
+@include styles;
+.editor-styles-wrapper{
+  @include styles;
 }
