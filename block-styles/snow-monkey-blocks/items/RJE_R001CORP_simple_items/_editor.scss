@@ -12,57 +12,64 @@
 // ------------------------------------------------------
 // スタイル
 // ------------------------------------------------------
-.is-style-RJE_R001CORP_simple_items{
-	.smb-items__banner,
-	.smb-items__item--free{
-		position: relative;
-		&::before{
-			content: "このパターン内では非推奨です";
-			position: absolute;
-			top: 0;
-			left: 0;
-			display: block;
-			padding: 0.25rem;
-			background-color: rgba(#e00, 0.7);
-			font-size: 0.75rem;
-			font-weight: bold;
-			color: #fff;
-			z-index: 2;
-		}
-	}
-  .smb-items__item__btn{
-    padding: 0 1.9rem 0 0 !important;
-    &::before,
-    &::after{
-      transition: unset !important;
+@mixin styles () {
+  .is-style-RJE_R001CORP_simple_items{
+    .smb-items__banner,
+    .smb-items__item--free{
+      position: relative;
+      &::before{
+        content: "このパターン内では非推奨です";
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        padding: 0.25rem;
+        background-color: rgba(#e00, 0.7);
+        font-size: 0.75rem;
+        font-weight: bold;
+        color: #fff;
+        z-index: 2;
+      }
     }
-		@include i.mq(lg) {
-			&:active,
-			&:focus,
-			&:hover {
-				&::before {
-					right: 0  !important;
-				}
-				&::after {
-					right: 0 !important;
-				}
-			}
-		}
+    .smb-items__item__btn{
+      padding: 0 1.9rem 0 0 !important;
+      &::before,
+      &::after{
+        transition: unset !important;
+      }
+      @include i.mq(lg) {
+        &:active,
+        &:focus,
+        &:hover {
+          &::before {
+            right: 0  !important;
+          }
+          &::after {
+            right: 0 !important;
+          }
+        }
+      }
+    }
+    //ブロックリンク
+    a:active,
+    a:focus,
+    a:hover {
+      .smb-items__item__btn {
+        @include i.mq(lg) {
+          padding: 0 1.9rem 0 0 !important;
+          &::before {
+            right: 0 !important;
+          }
+          &::after {
+            right: 0 !important;
+          }
+        }
+      }
+    }
   }
-	//ブロックリンク
-	a:active,
-	a:focus,
-	a:hover {
-		.smb-items__item__btn {
-			@include i.mq(lg) {
-				padding: 0 1.9rem 0 0 !important;
-				&::before {
-					right: 0 !important;
-				}
-				&::after {
-					right: 0 !important;
-				}
-			}
-		}
-	}
+}
+
+@include styles;
+.editor-styles-wrapper{
+  @include styles;
 }
