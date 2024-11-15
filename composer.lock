@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2ff93f31d7450915838bafc6b4481a0d",
+    "content-hash": "8c21391cc5f792789f007879a4b2c4a6",
     "packages": [
         {
             "name": "erusev/parsedown",
@@ -50,32 +50,35 @@
                 "markdown",
                 "parser"
             ],
+            "support": {
+                "issues": "https://github.com/erusev/parsedown/issues",
+                "source": "https://github.com/erusev/parsedown/tree/1.7.x"
+            },
             "time": "2019-12-30T22:54:17+00:00"
         },
         {
             "name": "inc2734/wp-github-plugin-updater",
-            "version": "3.1.1",
+            "version": "3.1.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/inc2734/wp-github-plugin-updater.git",
-                "reference": "9267c11f8d4db9d99d9d2e0ff18fa0c569b827f0"
+                "reference": "4a098dfe201b0437aaded896990b0be366b88298"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/inc2734/wp-github-plugin-updater/zipball/9267c11f8d4db9d99d9d2e0ff18fa0c569b827f0",
-                "reference": "9267c11f8d4db9d99d9d2e0ff18fa0c569b827f0",
+                "url": "https://api.github.com/repos/inc2734/wp-github-plugin-updater/zipball/4a098dfe201b0437aaded896990b0be366b88298",
+                "reference": "4a098dfe201b0437aaded896990b0be366b88298",
                 "shasum": ""
             },
             "require": {
-                "erusev/parsedown": "^1.6",
-                "php": ">=5.6"
+                "erusev/parsedown": "^1.7",
+                "php": ">=7.4"
             },
             "require-dev": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.4.3",
+                "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
                 "phpcompatibility/phpcompatibility-wp": "*",
-                "phpunit/phpunit": "7.*",
-                "squizlabs/php_codesniffer": "*",
-                "wp-coding-standards/wpcs": "*"
+                "wp-coding-standards/wpcs": "^3.1",
+                "yoast/phpunit-polyfills": "^2.0"
             },
             "type": "library",
             "autoload": {
@@ -94,7 +97,11 @@
                 }
             ],
             "description": "A library for WordPress that automatic plugin updater with GitHub API.",
-            "time": "2020-09-01T05:16:35+00:00"
+            "support": {
+                "issues": "https://github.com/inc2734/wp-github-plugin-updater/issues",
+                "source": "https://github.com/inc2734/wp-github-plugin-updater/tree/3.1.11"
+            },
+            "time": "2024-11-13T07:02:57+00:00"
         }
     ],
     "packages-dev": [],
@@ -107,5 +114,5 @@
         "php": ">=5.6"
     },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.6.0"
 }
