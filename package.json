@@ -6,9 +6,9 @@
   "main": "index.js",
   "devDependencies": {
     "@wordpress/env": "^5.15.0",
-    "@wordpress/scripts": "^26.1.0",
+    "@wordpress/scripts": "^30.4.0",
     "autoprefixer": "^10.4.14",
-    "backstopjs": "^6.2.0",
+    "backstopjs": "^6.3.25",
     "cpy-cli": "^4.2.0",
     "cssnano": "^6.0.0",
     "del-cli": "^5.0.0",
