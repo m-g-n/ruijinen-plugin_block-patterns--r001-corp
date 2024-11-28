@@ -2,7 +2,7 @@
 /**
  * Plugin name: 類人猿ブロックパターン：企業サイト向けパターン集
  * Description: 類人猿ブロックパターン 企業サイト向けパターンアドオンです
- * Version: 3.2.5
+ * Version: 3.2.6
  * Tested up to: 6.7
  * Requires at least: 6.3
  * Author: mgn Inc.,
