@@ -22,6 +22,10 @@ WordPressテーマ Snow Monkeyを拡張する「類人猿ブロックパター�
 https://ja.wordpress.org/team/handbook/block-editor/reference-guides/packages/packages-env/
 
 # 変更履歴
+## 3.2.6
+- composerパッケージのアップデート
+## 3.2.5
+- composer、nodeパッケージのアップデート
 ## 3.2.4
 - add_editor_styleで読み込んだCSSに自動的にclassが付与されない場合用のスタイルを追加
 ## 3.2.3
