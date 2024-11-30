@@ -16,3 +16,8 @@
 [class*="RJE_R001CORP"] {
 	letter-spacing: 0.1em;
 }
+
+//WordPress6.7から導入されたimageのsizeの指定を初期化
+img:is([sizes="auto" i], [sizes^="auto," i]) {
+  contain-intrinsic-size: initial;
+}
