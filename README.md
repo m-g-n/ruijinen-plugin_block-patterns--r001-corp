@@ -22,6 +22,8 @@ WordPressテーマ Snow Monkeyを拡張する「類人猿ブロックパター�
 https://ja.wordpress.org/team/handbook/block-editor/reference-guides/packages/packages-env/
 
 # 変更履歴
+## 3.2.7
+- WordPress6.7.1環境で「背景画像あり項目」パターンの高さが1500pxになってしまう不具合の対応
 ## 3.2.6
 - composerパッケージのアップデート
 ## 3.2.5
