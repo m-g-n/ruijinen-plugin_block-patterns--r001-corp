@@ -18,6 +18,10 @@
 }
 
 //WordPress6.7から導入されたimageのsizeの指定を初期化
-img:is([sizes="auto" i], [sizes^="auto," i]) {
-  contain-intrinsic-size: initial;
+img[class*="RJE_R001CORP"]:is([sizes="auto" i],[class*="RJE_R001CORP"] [sizes^="auto," i]),
+[class*="RJE_R001CORP"] img:is([sizes="auto" i],[class*="RJE_R001CORP"]  [sizes^="auto," i]){
+	contain-intrinsic-size: revert;
 }
+// img:is([sizes="auto" i], [sizes^="auto," i]) {
+//   contain-intrinsic-size: initial;
+// }
