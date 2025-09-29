@@ -5,7 +5,7 @@
   "license": "GPL-2.0+",
   "main": "index.js",
   "devDependencies": {
-    "@wordpress/env": "^5.15.0",
+    "@wordpress/env": "^10.31.0",
     "@wordpress/scripts": "^30.4.0",
     "autoprefixer": "^10.4.20",
     "backstopjs": "^6.1.4",
