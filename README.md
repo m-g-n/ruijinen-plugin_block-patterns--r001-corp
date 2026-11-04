@@ -69,6 +69,15 @@ BackstopJS の代わりに Playwright で、各パターンのフロント表示
 https://ja.wordpress.org/team/handbook/block-editor/reference-guides/packages/packages-env/
 
 # 変更履歴
+## 3.2.9
+- Snow Monkey 以外のテーマで共通 CSS が読み込まれない不具合を修正
+- 更新通知メッセージの取得にタイムアウトとキャッシュを追加し、管理画面の表示が遅くならないよう改善
+- 管理画面に出力するメッセージのエスケープ処理を追加
+- 翻訳ファイルの読み込みパスを修正
+- WordPress 7.1 での動作を確認
+- 開発環境: Node.js 24 への移行、node パッケージの更新、画像圧縮を sharp に変更
+- 開発環境: GitHub Actions のリリースフローを整備（プラグインのルートファイルの Version をもとにリリース PR・リリースを作成）
+- 開発環境: Playwright による E2E テスト（パターンの編集性）を追加し、ビジュアルリグレッションテストを BackstopJS から Playwright に移行
 ## 3.2.8
 - 3.2.7で修正したスタイルがLPパターン集の一部パターンにも影響してしまい画像がでない不具合の対応
 ## 3.2.7
