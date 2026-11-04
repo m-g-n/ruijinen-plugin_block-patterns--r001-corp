@@ -3,30 +3,9 @@
   "description": "類人猿 企業サイト向けパターン集のパッケージです",
   "author": "mgn",
   "license": "GPL-2.0+",
-  "main": "index.js",
-  "devDependencies": {
-    "@wordpress/env": "^10.31.0",
-    "@wordpress/scripts": "^30.4.0",
-    "autoprefixer": "^10.4.20",
-    "backstopjs": "^6.1.4",
-    "cpy-cli": "^4.2.0",
-    "cssnano": "^6.1.2",
-    "del-cli": "^5.1.0",
-    "glob": "^9.3.4",
-    "imagemin-gifsicle": "^7.0.0",
-    "imagemin-keep-folder": "^5.3.2",
-    "imagemin-mozjpeg": "^10.0.0",
-    "imagemin-pngquant": "^9.0.2",
-    "imagemin-svgo": "^10.0.1",
-    "npm-run-all": "^4.1.5",
-    "postcss": "^8.4.31",
-    "postcss-cli": "^10.1.0",
-    "postcss-sort-media-queries": "^4.3.0",
-    "rimraf": "^4.4.1",
-    "sass": "^1.60.0",
-    "stylelint-order": "^6.0.4",
-    "webpack": "^5.96.1",
-    "webpack-cli": "^5.0.1"
+  "private": true,
+  "engines": {
+    "node": ">=24"
   },
   "scripts": {
     "export:wp-content:themes": "npm run cli cp -- -r wp-content/themes .export/wp-content",
@@ -45,18 +24,21 @@
     "cli": "wp-env run cli",
     "wp": "wp-env run cli wp",
     "clean": "run-s 'clean:**'",
-    "clean:all": "del-cli 'dist/**/*' 'dist/**/*' -f",
+    "clean:all": "del-cli \"dist/**/*\" -f",
     "build": "run-s 'clean build:**'",
     "build:sass": "sass src/css:dist/css block-styles:dist/css/block-styles patterns:dist/css/patterns --no-error-css --no-source-map",
     "build:postcss": "postcss dist/css --base ./dist/css -d dist/css",
-    "build:img": "node imagemin.mjs",
+    "build:img": "node optimize-images.mjs",
     "debug:css": "sass src/css:dist/css block-styles:dist/css/block-styles patterns:dist/css/patterns",
     "watch": "run-s 'watch:css'",
     "watch:css": "sass src/css:dist/css block-styles:dist/css/block-styles patterns:dist/css/patterns --no-error-css --no-source-map --watch | postcss dist/css --base ./dist/css -d dist/css --watch",
     "backstop_reference": "npm run backstop reference",
     "backstop_test": "npm run backstop test",
     "backstop_approve": "npm run backstop approve",
-    "backstop": "node ./backstop_data/runner.js"
+    "backstop": "node ./backstop_data/runner.js",
+    "test:e2e": "playwright test --config tests/e2e/playwright.config.js",
+    "test:e2e:report": "playwright show-report tests/e2e/artifacts/report",
+    "test:e2e:user": "wp-env run cli wp user get e2e --field=ID || wp-env run cli wp user create e2e e2e@example.test --role=administrator --user_pass=password"
   },
   "browserslist": [
     ">0.25% in JP",
@@ -64,10 +46,19 @@
     "iOS >= 10",
     "Android >= 4.4"
   ],
-  "dependencies": {
-    "postcss-sorting": "^8.0.2"
-  },
-  "volta": {
-    "node": "14.21.1"
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "@wordpress/e2e-test-utils-playwright": "^3.2.0",
+    "@wordpress/env": "^12.1.0",
+    "backstopjs": "^6.3.25",
+    "cssnano": "^9.9.0",
+    "del-cli": "^8.0.1",
+    "npm-run-all2": "^9.0.4",
+    "postcss": "^8.5.32",
+    "postcss-cli": "^12.0.0",
+    "postcss-sort-media-queries": "^6.7.1",
+    "postcss-sorting": "^10.0.0",
+    "sass": "^1.107.1",
+    "sharp": "^0.35.5"
   }
 }
