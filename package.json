@@ -32,13 +32,11 @@
     "debug:css": "sass src/css:dist/css block-styles:dist/css/block-styles patterns:dist/css/patterns",
     "watch": "run-s 'watch:css'",
     "watch:css": "sass src/css:dist/css block-styles:dist/css/block-styles patterns:dist/css/patterns --no-error-css --no-source-map --watch | postcss dist/css --base ./dist/css -d dist/css --watch",
-    "backstop_reference": "npm run backstop reference",
-    "backstop_test": "npm run backstop test",
-    "backstop_approve": "npm run backstop approve",
-    "backstop": "node ./backstop_data/runner.js",
-    "test:e2e": "playwright test --config tests/e2e/playwright.config.js",
+    "test:e2e": "playwright test --config tests/e2e/playwright.config.js --project=editing",
     "test:e2e:report": "playwright show-report tests/e2e/artifacts/report",
-    "test:e2e:user": "wp-env run cli wp user get e2e --field=ID || wp-env run cli wp user create e2e e2e@example.test --role=administrator --user_pass=password"
+    "test:e2e:user": "wp-env run cli wp user get e2e --field=ID || wp-env run cli wp user create e2e e2e@example.test --role=administrator --user_pass=password",
+    "test:vrt": "playwright test --config tests/e2e/playwright.config.js --project=visual",
+    "test:vrt:update": "playwright test --config tests/e2e/playwright.config.js --project=visual --update-snapshots"
   },
   "browserslist": [
     ">0.25% in JP",
@@ -50,7 +48,6 @@
     "@playwright/test": "^1.64.1",
     "@wordpress/e2e-test-utils-playwright": "^3.2.0",
     "@wordpress/env": "^12.1.0",
-    "backstopjs": "^6.3.25",
     "cssnano": "^9.9.0",
     "del-cli": "^8.0.1",
     "npm-run-all2": "^9.0.4",
@@ -60,5 +57,8 @@
     "postcss-sorting": "^10.0.0",
     "sass": "^1.107.1",
     "sharp": "^0.35.5"
+  },
+  "overrides": {
+    "qs": "^6.16.1"
   }
 }

@@ -79,7 +79,7 @@ jobs:
           # 配布に不要な開発用ファイルを除外し、プラグインのルート直下の構成で zip 化する
           zip -rq "$RUNNER_TEMP/$ZIP_NAME" . \
             -x '.git/*' '.github/*' '.gitignore' '.editorconfig' '.nvmrc' '.wp-env.json' '*.DS_Store' \
-               '.export/*' 'node_modules/*' 'src/*' 'tests/*' 'backstop_data/*' 'backstop.json' \
+               '.export/*' 'node_modules/*' 'src/*' 'tests/*' \
                'package.json' 'package-lock.json' 'postcss.config.js' 'optimize-images.mjs' \
                'composer.json' 'composer.lock'
           unzip -l "$RUNNER_TEMP/$ZIP_NAME" | tail -n 1
