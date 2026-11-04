@@ -1,14 +1,18 @@
-[![Create Release](https://github.com/m-g-n/ruijinen-plugin_block-patterns--r002-corp/actions/workflows/release.yml/badge.svg)](https://github.com/m-g-n/ruijinen-plugin_block-patterns--r002-corp/actions/workflows/release.yml)
+[![Create Release](https://github.com/m-g-n/ruijinen-plugin_block-patterns--r001-corp/actions/workflows/release.yml/badge.svg)](https://github.com/m-g-n/ruijinen-plugin_block-patterns--r001-corp/actions/workflows/release.yml)
 
 # 類人猿ブロックパターン：企業サイト向けパターン集
 WordPressテーマ Snow Monkeyを拡張する「類人猿ブロックパターンプラグイン」のコーポレートサイト向けパターン集アドオンです
 
-# SCSSのコンパイル方法
-- npm ci でpackegeをインストール
-- npm run watch でSCSSファイルの修正を常時監視（SCSSを修正したら即時CSSにコンパイルしてくれる）
-- npm run build でCSSにコンパイル（コマンド走ったときだけCSSをコンパイル）
+# 動作要件（開発環境）
+- Node.js 24 以上（`.nvmrc` に記載。nvm / fnm / mise などのバージョンマネージャーで切り替えてください）
+- Docker（wp-env の利用時）
 
-# comporserの準備
+# SCSSのコンパイル方法
+- npm ci でpackageをインストール
+- npm run watch でSCSSファイルの修正を常時監視（SCSSを修正したら即時CSSにコンパイルしてくれる）
+- npm run build でCSSにコンパイル（コマンド走ったときだけCSSをコンパイル）・画像の圧縮
+
+# composerの準備
 - composer install でパッケージをインストール
 
 # wp-envによる開発環境の立ち上げ・終了
@@ -16,12 +20,64 @@ WordPressテーマ Snow Monkeyを拡張する「類人猿ブロックパター�
 - `npm run stop`でテーマ・SQLをエクスポートし、開発環境が止まります
 - なにかトラブルがあって、前終了した状態に戻したい場合は`npm run import`を実行ください
 
+# パターンの編集性テスト（E2E）
+Playwright で、各パターンをブロックエディターに挿入して次の点を自動で確認します。
+
+- ブロックの妥当性: 挿入したブロックが「予期しないコンテンツ」にならない
+- テキストの差し替え: 編集可能なテキストをすべて書き換えられる（編集できない表示テキストはレポートに一覧表示）
+- 画像の差し替え: 各画像を「置換」からアップロードした画像に差し替えられる
+- 画像とテキストの左右入れ替え: メディアとテキスト・ブロークングリッド等で画像の位置を左右反転でき、エディターとフロント（プレビュー）の両方で並びが入れ替わる
+
+WordPress 7 以降、挿入したパターンは「コンテンツのみ」の編集モードになります。挿入直後に操作できない場合は「パターンを編集」を押してから再試行し、どちらの状態で操作できたかをレポートに記録します。
+
+## 実行方法
+1. `npm run start` で開発環境を起動する（Snow Monkey テーマは手動でインストール・有効化する。テーマ専用パターンはテーマが無いとスキップされる）
+2. 初回のみ `npx playwright install chromium` でブラウザを導入し、`npm run test:e2e:user` でテスト専用の管理者ユーザー（e2e / password）を作成する
+3. `npm run test:e2e` でテストを実行する
+   - 一部のパターンだけ実行する場合: `npm run test:e2e -- -g "1カラムの項目"`
+   - 接続先・ユーザーは環境変数 `WP_BASE_URL` / `WP_USERNAME` / `WP_PASSWORD` で変更できる
+4. `npm run test:e2e:report` で HTML レポートを開く（各テストの annotation・添付に、差し替え結果や編集できないテキストの一覧が出る）
+
+テストでアップロードした画像（rje-e2e-replace*）と保存した下書きは、テスト終了時に削除されます。
+
+# 見た目の比較テスト（ビジュアルリグレッションテスト）
+BackstopJS の代わりに Playwright で、各パターンのフロント表示を 4 つの画面幅（375 / 768 / 1024 / 1280px）で撮影し、基準画像と比較します。
+パターンごとに一時的な公開ページ（スラッグ `rje-vrt-*`）を作成してログアウト状態で撮影し、テスト終了時に削除します。
+
+1. 上記「実行方法」の 1・2 を済ませる
+2. 変更前の状態で `npm run test:vrt:update` を実行し、基準画像を `tests/e2e/__screenshots__/` に保存する
+3. CSS などを変更してビルドしたあと、`npm run test:vrt` で比較する（差分が 0.1% を超えると失敗）
+4. `npm run test:e2e:report` で HTML レポートを開くと、失敗したテストの基準画像・現在の画像・差分画像を確認できる
+
+- 基準画像は OS・ブラウザで描画が変わるため Git では管理しません（各自の環境で作成する）
+- 地図などの埋め込み（iframe）は、読み込みのたびに表示が変わるため塗りつぶして比較します
+
+# リリース手順
+1. 作業ブランチで `ruijinen-block-patterns-r001-corp.php` のヘッダーの `Version` を更新し、README.md の「変更履歴」に `## <バージョン>` の見出しで変更内容を追記する
+2. 作業ブランチを dev へマージすると、dev → main のリリース PR が自動作成（既にあれば更新）される
+   - タイトル: プラグインのルートファイルの `Version`
+   - 本文: README.md の該当バージョンの変更履歴と、含まれる PR の一覧
+   - 同じバージョンが既にリリース済みの場合は、本文冒頭に警告が表示される
+3. リリース PR は「Create a merge commit」でマージする（squash / rebase だと次回以降の PR 一覧に過去の PR が残り続けるため）
+4. リリース PR を main へマージすると、ビルド・zip 化を行い GitHub Release が作成される
+   - 同じバージョンのリリースが既に存在する場合は、リリースをスキップする
+   - 最後に main → dev の反映 PR が自動作成される
+
 ## その他
 - 初期状態ではSnow Monkeyテーマは入っていません。手動でインストールください
 - wp-envのことについては公式ハンドブックをご覧ください
 https://ja.wordpress.org/team/handbook/block-editor/reference-guides/packages/packages-env/
 
 # 変更履歴
+## 3.2.9
+- Snow Monkey 以外のテーマで共通 CSS が読み込まれない不具合を修正
+- 更新通知メッセージの取得にタイムアウトとキャッシュを追加し、管理画面の表示が遅くならないよう改善
+- 管理画面に出力するメッセージのエスケープ処理を追加
+- 翻訳ファイルの読み込みパスを修正
+- WordPress 7.1 での動作を確認
+- 開発環境: Node.js 24 への移行、node パッケージの更新、画像圧縮を sharp に変更
+- 開発環境: GitHub Actions のリリースフローを整備（プラグインのルートファイルの Version をもとにリリース PR・リリースを作成）
+- 開発環境: Playwright による E2E テスト（パターンの編集性）を追加し、ビジュアルリグレッションテストを BackstopJS から Playwright に移行
 ## 3.2.8
 - 3.2.7で修正したスタイルがLPパターン集の一部パターンにも影響してしまい画像がでない不具合の対応
 ## 3.2.7

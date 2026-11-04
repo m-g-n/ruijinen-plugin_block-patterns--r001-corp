@@ -1,37 +1,111 @@
-name: Create release pull requests
+name: Create release pull request
+
+# dev へ PR がマージされたら、dev → main のリリース PR を作成（既にあれば更新）する。
+# - タイトル: プラグインのルートファイルのバージョン
+# - 本文: README.md の該当バージョンの変更履歴 + 含まれる PR 一覧
 
 on:
   pull_request:
     branches:
       - dev
     types: [closed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: release-pr
+  cancel-in-progress: false
 
 jobs:
   create-release-pr:
-    if: github.event.pull_request.merged == true && startsWith(github.event.pull_request.head.ref, 'main') == false
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.pull_request.merged == true && github.event.pull_request.head.ref != 'main')
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      PLUGIN_FILE: ruijinen-block-patterns-r001-corp.php
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v7
         with:
+          ref: dev
           fetch-depth: 0
 
-      - name: Get Version
-        id: get_version
-        uses: bbonkr/get-version-action@v1.0.1
-        with:
-          project: "./version.json"
-
-      - name: Echo Version
-        id: echo-version
+      - name: Get plugin version
+        id: version
         run: |
-          echo "Version=${{ steps.get_version.outputs.version }}"
+          version="$(sed -n 's/^[[:space:]]*\*[[:space:]]*Version:[[:space:]]*//p' "$PLUGIN_FILE" | head -n 1 | tr -d '\r[:space:]')"
+          if ! [[ "$version" =~ ^[0-9]+(\.[0-9]+)*$ ]]; then
+            echo "::error file=$PLUGIN_FILE::プラグインヘッダーから Version を取得できませんでした（取得値: '$version'）"
+            exit 1
+          fi
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "Version: $version"
 
-      - name: Create a release pull request
-        uses: bakunyo/git-pr-release-action@master
+      - name: Build pull request body
+        id: body
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GIT_PR_RELEASE_BRANCH_PRODUCTION: main
-          GIT_PR_RELEASE_BRANCH_STAGING: dev
-          GIT_PR_RELEASE_LABELS: release
-          PKG_VERSION: ${{ steps.get_version.outputs.version }}
-          GIT_PR_RELEASE_TEMPLATE: .github/git-pr-release/.git-pr-release-template
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          # README.md から「## <VERSION>」見出し配下（次の見出しまで）を抜き出す
+          changelog="$(awk -v ver="## ${VERSION}" '
+            { line = $0; sub(/[ \t\r]+$/, "", line) }
+            line == ver { found = 1; next }
+            found && /^##? / { exit }
+            found { print line }
+          ' README.md | sed -e '/^[[:space:]]*$/d')"
+          if [ -z "$changelog" ]; then
+            echo "::warning file=README.md::README.md に「## ${VERSION}」の変更履歴がありません"
+            changelog="- （README.md に変更履歴の記載がありません）"
+          fi
+
+          # main に未反映のコミットに紐づく、dev へマージ済みの PR を列挙する（main → dev の反映 PR は除外）
+          git log --format=%H origin/main..origin/dev > "$RUNNER_TEMP/commits.txt"
+          prs="$(gh pr list --base dev --state merged --limit 200 \
+            --json number,title,headRefName,mergeCommit \
+            | jq -r --rawfile commits "$RUNNER_TEMP/commits.txt" '
+                ($commits | split("\n") | map(select(length > 0))) as $shas
+                | map(select(.headRefName != "main" and .mergeCommit != null and (.mergeCommit.oid as $oid | $shas | index($oid))))
+                | sort_by(.number)
+                | .[]
+                | "- #\(.number) \(.title)"
+              ')"
+
+          if [ -z "$prs" ]; then
+            echo "main に未反映の PR がないため、リリース PR の作成をスキップします"
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          {
+            if gh release view "$VERSION" > /dev/null 2>&1 || git rev-parse -q --verify "refs/tags/$VERSION" > /dev/null; then
+              echo "::warning file=$PLUGIN_FILE::バージョン $VERSION は既にリリース済みです。マージしてもリリースはスキップされます" >&2
+              echo "> [!WARNING]"
+              echo "> バージョン $VERSION は既にリリース済みです。このままマージするとリリースはスキップされます。"
+              echo
+            fi
+            echo "### 変更内容"
+            echo "$changelog"
+            echo
+            echo "### 含まれる PR"
+            echo "$prs"
+          } > "$RUNNER_TEMP/body.md"
+          cat "$RUNNER_TEMP/body.md"
+          echo "skip=false" >> "$GITHUB_OUTPUT"
+
+      - name: Create or update release pull request
+        if: steps.body.outputs.skip != 'true'
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          number="$(gh pr list --base main --head dev --state open --json number -q '.[0].number')"
+          if [ -n "$number" ]; then
+            gh pr edit "$number" --title "$VERSION" --body-file "$RUNNER_TEMP/body.md"
+            echo "リリース PR #$number を更新しました"
+          else
+            gh pr create --base main --head dev --title "$VERSION" --body-file "$RUNNER_TEMP/body.md" --label release
+          fi

@@ -1,82 +1,117 @@
 name: Create Release
 
+# main へ PR がマージされたら、プラグインのルートファイルのバージョンでリリースを作成する。
+# 同じバージョンのリリース（タグ）が既にある場合はリリースをスキップする。
+# リリースの有無にかかわらず、最後に main → dev の反映 PR を作成する。
+
 on:
   pull_request:
     types: [closed]
     branches:
       - main
 
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  release:
     if: github.event.pull_request.merged == true
-    #nodeのバージョン設定 参考 https://docs.github.com/ja/free-pro-team@latest/actions/guides/building-and-testing-nodejs
-    strategy:
-      matrix:
-        node-version: [16.x]
-
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      PLUGIN_FILE: ruijinen-block-patterns-r001-corp.php
+      ZIP_NAME: ruijinen-block-patterns-r001-corp.zip
     steps:
-      - name: Checkout code
-        uses: actions/checkout@master
-
-      #scriptの実施
-      - uses: actions/checkout@v3
-      - name: Use Node.js
-        uses: actions/setup-node@v3
+      - name: Checkout
+        uses: actions/checkout@v7
         with:
-          node-version: '14.x'
-      - name: Install dependencies
-        run: npm ci
-      - name: build css and js
-        run: npm run build
+          ref: ${{ github.event.pull_request.merge_commit_sha }}
+          fetch-depth: 0
 
-      #composerの実施
+      - name: Get plugin version
+        id: version
+        run: |
+          version="$(sed -n 's/^[[:space:]]*\*[[:space:]]*Version:[[:space:]]*//p' "$PLUGIN_FILE" | head -n 1 | tr -d '\r[:space:]')"
+          if ! [[ "$version" =~ ^[0-9]+(\.[0-9]+)*$ ]]; then
+            echo "::error file=$PLUGIN_FILE::プラグインヘッダーから Version を取得できませんでした（取得値: '$version'）"
+            exit 1
+          fi
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "Version: $version"
+
+      - name: Check existing release
+        id: check
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          if gh release view "$VERSION" > /dev/null 2>&1 || git rev-parse -q --verify "refs/tags/$VERSION" > /dev/null; then
+            echo "::notice::バージョン $VERSION のリリースは既に存在するため、リリースをスキップします"
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Setup Node.js
+        if: steps.check.outputs.exists == 'false'
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Build assets
+        if: steps.check.outputs.exists == 'false'
+        run: |
+          npm ci
+          npm run build
+
       - name: Composer install
-        uses: docker://composer:1.9.1
-        with:
-          args: install
+        if: steps.check.outputs.exists == 'false'
+        run: composer install --no-dev --prefer-dist --no-interaction --no-progress --optimize-autoloader
 
-      # release作成
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
+      - name: Create zip
+        if: steps.check.outputs.exists == 'false'
+        run: |
+          # 配布に不要な開発用ファイルを除外し、プラグインのルート直下の構成で zip 化する
+          zip -rq "$RUNNER_TEMP/$ZIP_NAME" . \
+            -x '.git/*' '.github/*' '.gitignore' '.editorconfig' '.nvmrc' '.wp-env.json' '*.DS_Store' \
+               '.export/*' 'node_modules/*' 'src/*' 'tests/*' \
+               'package.json' 'package-lock.json' 'postcss.config.js' 'optimize-images.mjs' \
+               'composer.json' 'composer.lock'
+          unzip -l "$RUNNER_TEMP/$ZIP_NAME" | tail -n 1
+
+      - name: Create release
+        if: steps.check.outputs.exists == 'false'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.event.pull_request.title }}
-          release_name: ${{ github.event.pull_request.title }}
-          body: ${{ github.event.pull_request.body }}
-          draft: false
-          prerelease: false
+          VERSION: ${{ steps.version.outputs.version }}
+          TARGET_SHA: ${{ github.event.pull_request.merge_commit_sha }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          if [ -n "$PR_BODY" ]; then
+            printf '%s\n' "$PR_BODY" > "$RUNNER_TEMP/notes.md"
+          else
+            echo "- バージョン $VERSION" > "$RUNNER_TEMP/notes.md"
+          fi
+          gh release create "$VERSION" "$RUNNER_TEMP/$ZIP_NAME" \
+            --target "$TARGET_SHA" \
+            --title "$VERSION" \
+            --notes-file "$RUNNER_TEMP/notes.md"
 
-      # release用のzip作成 https://github.com/marketplace/actions/zip-release
-      - name: Zip Release
-        uses: TheDoctor0/zip-release@0.4.1
-        with:
-          filename: 'ruijinen-block-patterns-r001-corp.zip' # ファイル名
-          exclusions: '*.git* /*node_modules/* .editorconfig /*src/*scss/* /*.export/* .wp-env.json /*backstop_data/* backstop.json version.json' # 除外設定
-          directory: '.'
-          path: '.'
-          type: 'zip'
-
-      # releaseにzipファイルを添付
-      - name: Upload Release Asset
-        id: upload-release-asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
-          asset_path: ./ruijinen-block-patterns-r001-corp.zip
-          asset_name: ruijinen-block-patterns-r001-corp.zip
-          asset_content_type: application/zip
-
-      # mainからdevにPR生成
-      - name: create-pull-request
-        uses: repo-sync/pull-request@v2
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          destination_branch: 'dev'
-          pr_title: "リリース残処理：mainの内容をdevへ反映"
-          pr_body: "Pulling main into dev"
-          pr_allow_empty: true
+      - name: Create pull request (main → dev)
+        run: |
+          git fetch origin main dev
+          if [ "$(git rev-list --count origin/dev..origin/main)" -eq 0 ]; then
+            echo "dev に未反映のコミットがないため、反映 PR の作成をスキップします"
+            exit 0
+          fi
+          if [ -n "$(gh pr list --base dev --head main --state open --json number -q '.[0].number')" ]; then
+            echo "main → dev の反映 PR は既に存在します"
+            exit 0
+          fi
+          gh pr create --base dev --head main \
+            --title "リリース残処理：mainの内容をdevへ反映" \
+            --body "main の内容を dev へ反映します。"
