@@ -25,6 +25,8 @@ jobs:
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       PLUGIN_FILE: ruijinen-block-patterns-r001-corp.php
+      # プラグインのディレクトリー名（zip のトップレベルのディレクトリー名）
+      PLUGIN_SLUG: ruijinen-block-patterns-r001-corp
       ZIP_NAME: ruijinen-block-patterns-r001-corp.zip
     steps:
       - name: Checkout
@@ -76,12 +78,26 @@ jobs:
       - name: Create zip
         if: steps.check.outputs.exists == 'false'
         run: |
-          # 配布に不要な開発用ファイルを除外し、プラグインのルート直下の構成で zip 化する
-          zip -rq "$RUNNER_TEMP/$ZIP_NAME" . \
-            -x '.git/*' '.github/*' '.gitignore' '.editorconfig' '.nvmrc' '.wp-env.json' '*.DS_Store' \
-               '.export/*' 'node_modules/*' 'src/*' 'tests/*' \
-               'package.json' 'package-lock.json' 'postcss.config.js' 'optimize-images.mjs' \
-               'composer.json' 'composer.lock'
+          # zip のトップレベルをプラグインのディレクトリー（$PLUGIN_SLUG/）にする。
+          # トップレベルにファイルを直接置くと、WordPress の更新時に作業ディレクトリー名
+          # （例: ruijinen-block-patterns-r001-corp-51sVCH4sqMeONYtI）がそのままプラグインのディレクトリー名になってしまう。
+          stage="$RUNNER_TEMP/stage"
+          mkdir -p "$stage/$PLUGIN_SLUG"
+          # 配布に不要な開発用ファイルを除外してコピーする（先頭の / はリポジトリのルート直下のみに一致）
+          rsync -a ./ "$stage/$PLUGIN_SLUG/" \
+            --exclude='/.git/' --exclude='/.github/' --exclude='/.gitignore' --exclude='/.editorconfig' \
+            --exclude='/.nvmrc' --exclude='/.wp-env.json' --exclude='.DS_Store' \
+            --exclude='/.export/' --exclude='/node_modules/' --exclude='/src/' --exclude='/tests/' \
+            --exclude='/package.json' --exclude='/package-lock.json' --exclude='/postcss.config.js' \
+            --exclude='/optimize-images.mjs' --exclude='/composer.json' --exclude='/composer.lock'
+          (cd "$stage" && zip -rq "$RUNNER_TEMP/$ZIP_NAME" "$PLUGIN_SLUG")
+
+          # トップレベルが $PLUGIN_SLUG/ だけで、その直下にプラグインのルートファイルがあることを確認する
+          top="$(zipinfo -1 "$RUNNER_TEMP/$ZIP_NAME" | cut -d/ -f1 | sort -u)"
+          if [ "$top" != "$PLUGIN_SLUG" ] || ! zipinfo -1 "$RUNNER_TEMP/$ZIP_NAME" | grep -qx "$PLUGIN_SLUG/$PLUGIN_FILE"; then
+            echo "::error::zip の構成が不正です（トップレベル: $(echo "$top" | tr '\n' ' ')）"
+            exit 1
+          fi
           unzip -l "$RUNNER_TEMP/$ZIP_NAME" | tail -n 1
 
       - name: Create release
