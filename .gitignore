@@ -20,7 +20,7 @@ dist/
 /.export/wp-content/
 /.export/sql/
 
-## Backstop JS
+## Backstop JS（削除済み。ローカルに残った画像を誤ってコミットしないよう残す）
 backstop_data/bitmaps_reference/
 backstop_data/bitmaps_test/
 backstop_data/html_report/
@@ -28,3 +28,4 @@ backstop_data/__old/
 
 ## E2E (Playwright)
 tests/e2e/artifacts/
+tests/e2e/__screenshots__/

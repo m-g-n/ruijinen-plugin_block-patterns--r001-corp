@@ -22,27 +22,7 @@ const {
 	getBlockImageSources,
 } = require("./utils/editor");
 
-/** App/Patterns/RegisterPatterns.php で登録しているパターン */
-const PATTERNS = [
-	{ key: "layered1", title: "重なりキャッチ1" },
-	{ key: "layered2", title: "重なりキャッチ2" },
-	{ key: "person", title: "人物キャッチ" },
-	{ key: "recent_posts", title: "最新の投稿", snowMonkeyOnly: true },
-	{ key: "tax_posts", title: "任意のタクソノミーの投稿", snowMonkeyOnly: true },
-	{ key: "simple_items", title: "シンプルな項目" },
-	{ key: "items_with_bg", title: "背景画像あり項目" },
-	{ key: "one_column_items", title: "1カラムの項目" },
-	{ key: "steps", title: "流れ" },
-	{ key: "induction", title: "任意ページへ誘導" },
-	{ key: "infomation", title: "シンプルな情報" },
-	{ key: "chronology", title: "年表" },
-	{ key: "accordion", title: "アコーディオン" },
-	{ key: "history", title: "沿革" },
-	{ key: "access", title: "アクセスMAP" },
-	{ key: "banners", title: "バナー" },
-	{ key: "child_pages", title: "子ページ一覧", snowMonkeyOnly: true },
-	{ key: "cta", title: "お問い合わせ誘導" },
-];
+const { PATTERNS, patternName } = require("./utils/patterns");
 
 const MODE_LABEL = {
 	default: "挿入直後のまま操作可",
@@ -58,7 +38,7 @@ const MODE_LABEL = {
 async function insertOrSkip(page, pattern) {
 	const inserted = await insertPattern(
 		page,
-		`RJE-pattern/RJE_R001CORP_${pattern.key}`,
+		patternName(pattern.key),
 	);
 	test.skip(
 		!inserted,
@@ -262,7 +242,7 @@ test.describe("企業サイト向けパターンの編集性", () => {
 						await admin.createNewPost();
 						await insertPattern(
 							page,
-							`RJE-pattern/RJE_R001CORP_${pattern.key}`,
+							patternName(pattern.key),
 						);
 						const { clientId, title } = (await getFlatBlocks(page))[index];
 						const before = await getBlockImageSources(editor.canvas, clientId);
@@ -334,7 +314,7 @@ test.describe("企業サイト向けパターンの編集性", () => {
 						await admin.createNewPost();
 						await insertPattern(
 							page,
-							`RJE-pattern/RJE_R001CORP_${pattern.key}`,
+							patternName(pattern.key),
 						);
 						const { clientId } = (await getFlatBlocks(page))[target.index];
 						const next = target.position === "right" ? "left" : "right";
@@ -384,7 +364,7 @@ test.describe("企業サイト向けパターンの編集性", () => {
 						await admin.createNewPost();
 						await insertPattern(
 							page,
-							`RJE-pattern/RJE_R001CORP_${pattern.key}`,
+							patternName(pattern.key),
 						);
 						await page.evaluate((items) => {
 							const { select, dispatch } = window.wp.data;
