@@ -1,6 +1,6 @@
 <?php
 /**
- * @package ruijinen-skin-r002-lp
+ * @package ruijinen-r001-corp
  * @author mgn
  * @license GPL-2.0+
  */
@@ -15,8 +15,8 @@ class Assets {
 	 */
 	public function __construct() {
 		add_action( 'init', [ $this, 'get_sm_style_handles' ] );
-		add_action( 'wp_enqueue_scripts', [ $this, 'wp_enqueue_scripts' ] );
-		add_action( 'enqueue_block_editor_assets', [ $this, 'enqueue_block_editor_assets' ] );
+		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_common_style' ] );
+		add_action( 'enqueue_block_editor_assets', [ $this, 'enqueue_common_style' ] );
 	}
 
 	/**
@@ -30,18 +30,17 @@ class Assets {
 	}
 
 	/**
-	 * Enqueue front assets
+	 * Enqueue common style (front / block editor).
 	 */
-	public function wp_enqueue_scripts() {
+	public function enqueue_common_style() {
 		$path = 'dist/css/common.css';
-		wp_enqueue_style( RJE_R001CORP_KEY . '_common', RJE_R001CORP_URL . $path, [ $this->sm_style_handles ], filemtime( RJE_R001CORP_PATH . $path ) );
-	}
+		if ( ! file_exists( RJE_R001CORP_PATH . $path ) ) {
+			return;
+		}
 
-	/**
-	 * Enqueue Block Editor Assets
-	 */
-	public function enqueue_block_editor_assets() {
-		$path = 'dist/css/common.css';
-		wp_enqueue_style( RJE_R001CORP_KEY . '_common', RJE_R001CORP_URL . $path, [ $this->sm_style_handles ], filemtime( RJE_R001CORP_PATH . $path ) );
+		// Snow Monkey 以外のテーマではハンドルが空になるため、空の依存関係を渡さない（未登録の依存があると読み込まれない）.
+		$deps = array_filter( (array) $this->sm_style_handles );
+
+		wp_enqueue_style( RJE_R001CORP_KEY . '_common', RJE_R001CORP_URL . $path, $deps, filemtime( RJE_R001CORP_PATH . $path ) );
 	}
 }
